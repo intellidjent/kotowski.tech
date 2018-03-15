@@ -1,0 +1,326 @@
+/* CSS overrides for theme.css and everything else */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=cyrillic');
+
+@font-face {
+	font-family: 'Warhelios-Bold';
+	src: url('../fonts/Warhelios-Bold_Web.eot');
+	src: url('../fonts/Warhelios-Bold_Web.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/Warhelios-Bold_Web.woff2') format('woff2'),
+		 url('../fonts/Warhelios-Bold_Web.woff') format('woff'),
+		 url('../fonts/Warhelios-Bold_Web.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal
+}
+
+body {
+    font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
+    font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6, legend {
+    font-family: "Warhelios-Bold", "Roboto Condensed", Arial, sans-serif;
+    color: #BE0712;
+    font-weight: 400;
+}
+
+.wy-table td, .rst-content table.docutils td, .rst-content table.field-list td {
+    vertical-align: baseline;
+}
+
+.wy-nav-content {
+	max-width: 1000px;
+}
+
+.wy-side-nav-search>a, .wy-side-nav-search .wy-dropdown>a {
+    font-family: "Warhelios-Bold", "Roboto Condensed", Arial, sans-serif;
+    font-size: 120%;
+    color: #fff;
+    font-weight: 400;
+    /*text-shadow: 0 0 1.5px #fff;*/
+}
+
+/* For NGI project only */
+.toctree-l1 span, .toctree-l1>a, .pdf-button {
+	font-family: 'Roboto Condensed';
+	background-color: #413d3d;
+	text-transform: uppercase;
+}
+
+.pdf-button {
+	color: #B3B3B3;
+	background-color: #272525;
+}
+
+.wy-side-nav-search {
+	background-color: #343131
+}
+
+.wy-breadcrumbs li {
+	font-family: "Warhelios-Bold","Roboto Condensed", "Helvetica", Arial, sans-serif;
+    /*font-family: "Roboto Condensed", "Helvetica", Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 80%;*/
+	color: #BE0712;
+
+}
+
+a {
+    color: #BE0712;
+    text-decoration: none;
+}
+
+a code {
+    color: #BE0712;
+}
+
+a:visited code {
+    color: #BE0712;
+}
+
+.rst-content a:visited {
+	color: #BE0712;
+}
+
+.rst-content a:hover {
+    color: #3091d1;
+}
+
+#rtd-search-form-alt input[type=text] {
+    width: 100%;
+    border-radius: 0;
+    padding: 10px 12px;
+    border-color: inherit;
+}
+.rst-content #rtd-search-form-alt input[type=text] {
+    border-color: #d2d2d2;
+}
+.theverybottom {
+	font-size: 80%;
+}
+
+.codeblock, pre.literal-block, .rst-content .literal-block, .rst-content pre.literal-block, div[class^='highlight'] {
+    border: 1px solid #e1e4e5;
+    border-radius: 6px;
+    padding: 0;
+    overflow-x: auto;
+    background: #fff;
+    margin: 1px 0 24px 0;
+}
+
+div[class^='highlight'] pre {
+    white-space: pre;
+    margin: 0;
+    padding: 12px 12px;
+    font-family: Menlo,Consolas,"Inconsolata","Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    display: block;
+    overflow: auto;
+    color: #404040;
+}
+
+code, .rst-content tt {
+    white-space: nowrap;
+    max-width: 100%;
+    background: #fff;
+    border: solid 1px #e1e4e5;
+    border-radius: 3px;
+    font-size: 90%;
+    padding: 1px 3px;
+    font-family: Menlo,Consolas,"Inconsolata","Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
+    color: #404040;
+    overflow-x: auto;
+}
+
+.wy-side-nav-search img {
+    max-width: 80%;
+    display: block;
+    margin: auto;
+    height: 70px;
+    width: 0;
+    background-color: inherit;
+    padding: 0;
+    border-radius: 0;
+}
+
+.wy-company-logo {
+    width: auto;
+    margin: 0px 20px 20px 20px;
+    display: block;
+    background: url(../img/wg_logo_red.png) no-repeat center;
+    background-size: 25%;
+    /*width: 132px;
+    height: 70px;*/
+}
+
+
+/*.wy-menu-vertical li ul li a {
+	color: #fff;
+}*/
+
+.wy-menu-vertical li.current>a {
+	background: none;
+	border-top: none;
+	border-bottom: none;
+    font-weight: normal;
+    -webkit-font-smoothing: initial;
+}
+
+.wy-menu-vertical li.on a:hover, .wy-menu-vertical li.current>a:hover {
+    background: none;
+}
+
+.wy-menu-vertical li.current a:hover {
+    background: #4e4a4a;
+}
+
+.wy-menu-vertical li.current a {
+	color: #fff;
+}
+
+.wy-menu-vertical li.current {
+	background: none;
+}
+
+a.toctree-l4 { /* toc indent fix */
+    padding-left: 6em !important;
+    font-size: 12px;
+}
+
+/* ------- ADMONITIONS -------*/
+
+.admonition {
+    border-radius: .28571429rem;
+    background: #f8f8f9;
+}
+
+.rst-content .admonition-title {
+    display: none;
+}
+
+.admonition>p {
+    font-size: 14px;
+}
+
+.rst-content .note {
+    background-color: #f8ffff;
+    color: #276f86;
+    box-shadow: 0 0 0 1px #a9d5de inset, 0 0 0 0 transparent;
+}
+
+.rst-content .tip {
+    background-color: #fcfff5;
+    color: #2c662d;
+    box-shadow: 0 0 0 1px #a3c293 inset, 0 0 0 0 transparent;
+}
+
+.rst-content .warning {
+    background-color: #fffaf3;
+    color: #573a08;
+    box-shadow: 0 0 0 1px #c9ba9b inset, 0 0 0 0 transparent;
+}
+
+.rst-content .important {
+    background-color: #fffaf3;
+    color: #573a08;
+    box-shadow: 0 0 0 1px #c9ba9b inset, 0 0 0 0 transparent;
+}
+
+.rst-content .error {
+    background-color: #fff6f6;
+    color: #9f3a38;
+    box-shadow: 0 0 0 1px #e0b4b4 inset, 0 0 0 0 transparent
+}
+
+/* ------- IMAGES ------- */
+
+.rst-content img {
+    margin-bottom: 15px;
+    max-width: 750px;
+}
+
+/* ------- TABLES ------- */
+
+td {
+    line-height: 1.5
+}
+
+.rst-content dl dd {
+    line-height: 1.5
+}
+
+/* hack for first level headings in toc*/
+/*li.toctree-l3:first-child {
+    display: none;
+}*/
+
+.pagetitle {
+    font-family: "Warhelios-Bold", "Roboto Condensed", Arial, sans-serif;
+    color: #BE0712;
+    font-size: 200%;
+    margin-bottom: 0.83em;
+}
+.pagetitle__home {
+    color: #BE0712;
+    text-align: center;
+}
+
+details {
+    margin-bottom: 1.6em;
+}
+
+summary {
+    color: #BE0712;
+}
+
+/* TABS */
+
+
+/* Style the tab */
+
+button {
+    border-radius: 0;
+}
+
+
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    margin-bottom: 1.6em;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    color: #BE0712;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 20px 20px 12px 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+    margin-top: -1.6em;
+    margin-bottom: 1.6em;
+}
