@@ -154,7 +154,7 @@
 <p><strong>To set up a simple one-to-one chat</strong>:</p>
 <ol>
 <li>Embed an XMPP client into the game client and implement <a href="#extensions">Chat extensions</a> support.</li>
-<li>Configure the XMPP client to connect to WG XMPPCS using JID and password.</li>
+<li>Configure the XMPP client to connect to XMPPCS using JID and password.</li>
 </ol>
 <h2 id="embedding-xmpp-client">Embedding XMPP Client<a class="headerlink" href="#embedding-xmpp-client" title="Permanent link">&para;</a></h2>
 <p>To ensure consistency and successful communication with the chat server, the embedded XMPP client should be implemented according to the principles and basics of the XMPP protocol.</p>
@@ -264,7 +264,7 @@
 </tbody>
 </table>
 <h1 id="xep-support">XEP Support<a class="headerlink" href="#xep-support" title="Permanent link">&para;</a></h1>
-<p>Although WG XMPPCS does not contain the whole range of extensions (XEPs) described in the XMPP standard, support may be extended upon request.</p>
+<p>Although XMPPCS does not contain the whole range of extensions (XEPs) described in the XMPP standard, support may be extended upon request.</p>
 <h2 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h2>
 <p>Chat extensions add extra information to the "source" XML-stanza sent from one XMPP client to another.</p>
 <p><strong>Client extensions</strong> are used to trasfer data from one XMPP client to another in real-time (for example, client version).</p>
@@ -272,10 +272,10 @@
 <p>With Chat client extensions data is usually not associated with the game server. XMPPCS transfers the stanza with extensions "as is", not paying attention to the data, which is not XMPP standard.</p>
 <p>Here's an example of client extensions:</p>
 <div class="highlight"><pre><span></span><span class="nt">&lt;presence</span> <span class="na">xmlns=</span><span class="s">&#39;jabber:client&#39;</span> <span class="na">to=</span><span class="s">&#39;alice@example.net&#39;</span> <span class="na">from=</span><span class="s">&#39;bob@example.net/wowp&#39;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;wgexts-client</span> <span class="na">xmlns=</span><span class="s">&#39;http://example.net/xmpplient&#39;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;exts-client</span> <span class="na">xmlns=</span><span class="s">&#39;http://example.net/xmpplient&#39;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;something&gt;</span>somevalue<span class="nt">&lt;/something&gt;</span>
         <span class="nt">&lt;yet-another&gt;</span>1337<span class="nt">&lt;/yet-another&gt;</span>
-    <span class="nt">&lt;/wgexts-client&gt;</span>
+    <span class="nt">&lt;/exts-client&gt;</span>
 <span class="nt">&lt;/presence&gt;</span>
 </pre></div>
 
@@ -284,12 +284,12 @@
     <span class="nt">&lt;priority&gt;</span>0<span class="nt">&lt;/priority&gt;</span>
     <span class="nt">&lt;c</span> <span class="na">xmlns=</span><span class="s">&#39;http://jabber.org/protocol/caps&#39;</span> <span class="na">ver=</span><span class="s">&#39;1LpOuB49QCQE6BcZoAF5tBoALdg=&#39;</span>
     <span class="na">node=</span><span class="s">&#39;http://camaya.net/gloox&#39;</span> <span class="na">hash=</span><span class="s">&#39;sha-1&#39;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;wgexts</span> <span class="na">xmlns=</span><span class="s">&#39;http://example.net/xmpp2&#39;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;exts</span> <span class="na">xmlns=</span><span class="s">&#39;http://example.net/xmpp2&#39;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;nickname&gt;</span>players_nickname<span class="nt">&lt;/nickname&gt;</span>
         <span class="nt">&lt;userid&gt;</span>5010<span class="nt">&lt;/userid&gt;</span>
         <span class="nt">&lt;clanid&gt;</span>1<span class="nt">&lt;/clanid&gt;</span>
         <span class="nt">&lt;clantag&gt;</span>TEST<span class="nt">&lt;/clantag&gt;</span>
-    <span class="nt">&lt;/wgexts&gt;</span>
+    <span class="nt">&lt;/exts&gt;</span>
 <span class="nt">&lt;/presence&gt;</span>
 </pre></div>
 
