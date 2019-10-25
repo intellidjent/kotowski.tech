@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Configuring SDK · Kotowski.me</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="**SDK configuration** is a Java [Spring](https://docs.spring.io/spring/docs/current/spring-framework-reference/overview.html)-like set of definitions"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Configuring SDK · Kotowski.me"/><meta property="og:type" content="website"/><meta property="og:url" content="http://kotowski.me//"/><meta property="og:description" content="**SDK configuration** is a Java [Spring](https://docs.spring.io/spring/docs/current/spring-framework-reference/overview.html)-like set of definitions"/><meta property="og:image" content="http://kotowski.me/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="http://kotowski.me/img/docusaurus.png"/><link rel="shortcut icon" href="/img/logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/findIndexPolyfill.js"></script><script type="text/javascript" src="/js/renderModal.js"></script><script type="text/javascript" src="/js/modal.js"></script><script type="text/javascript" src="/js/main.js"></script><script type="text/javascript" src="/js/fuse.min.js"></script><script type="text/javascript" src="/js/history.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">Kotowski.me</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class="siteNavGroupActive"><a href="/docs/xmpp" target="_self">Docs</a></li><li class=""><a href="http://kotowski.me" target="_self">Back to CV</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Samples</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Samples<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/xmpp">Integrating XMPP</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/sdk-config">Configuring SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/bi">Business intelligence</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Configuring SDK</h1></header><article><div><span><p><strong>SDK configuration</strong> is a Java <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/overview.html">Spring</a>-like set of definitions
+for SDK components.</p>
+<p>SDK configuration is created declaratively using Java Annotations. There are two main annotations: <code>@ModelConfiguration</code> and <code>@Named</code>. Annotating a class with <code>@ModelConfiguration</code> indicates that the class can be used as a source of component definitions. The <code>@Named</code> annotation declares a component and tells that a method will return an actual component which should be registered in <a href="#componentregistry">ComponentRegistry</a>.</p>
+<p>Your <code>@ModelConfiguration</code> class can have a declaration for more than one <code>@Named</code> annotation. Once your classes are defined, you can use the configuration for model training.</p>
+<h2><a class="anchor" aria-hidden="true" id="configuration"></a><a href="#configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h2>
+<p>Let's start with a basic configuration:</p>
+<ol>
+<li>First, use <code>@ModelConfiguration</code> to declare a class as a configuration instance.</li>
+<li>Next, add the main configuration class <code>@HypermodelConfiguration</code> to the hyper-model declaration.</li>
+</ol>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@ModelConfiguration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExampleConfiguration</span> </span>{
+}
+
+<span class="hljs-meta">@HypermodelConfiguration</span>(ExampleConfiguration.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExampleHypermodel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">GenericIeHypermodel</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ExampleHypermodel</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        <span class="hljs-keyword">super</span>();
+    }
+
+}
+</code></pre>
+
+    <div class="admonition admonition-note">
+      <div class="admonition-heading">
+        <h5><div class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"/></svg></div> note</h5>
+      </div>
+      <div class="admonition-content">
+    <p>The previous configuration example extends the default <code>GenericIeHypermodel</code> configuration. This can be changed during the project configuration step by specifying the <code>importFromGenericModel</code> parameter.</p>
+</div></div><h2><a class="anchor" aria-hidden="true" id="components-configuration"></a><a href="#components-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Components configuration</h2>
+<p>To declare one or multiple SDK components,
+use the <code>@Named</code> annotation with a string value to attach a name identifier
+to a component. Note, that <code>@Named</code> can return a single component or a
+list of components.</p>
+<p>The following example declares 3 named components: <code>PostProcessors</code>, <code>Extractors</code>, and a list of <code>annotators</code>.</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-keyword">import</span> com.example.sdk.api.annotation.ModelConfiguration;
+<span class="hljs-keyword">import</span> com.example.sdk.api.annotation.Named;
+<span class="hljs-keyword">import</span> com.example.sdk.api.annotator.Annotator;
+<span class="hljs-keyword">import</span> com.example.sdk.api.fe.Extractor;
+<span class="hljs-keyword">import</span> com.example.sdk.api.model.Cell;
+<span class="hljs-keyword">import</span> com.example.sdk.api.model.Element;
+<span class="hljs-keyword">import</span> com.example.sdk.api.model.IeDocument;
+<span class="hljs-keyword">import</span> com.example.sdk.api.processing.Processor;
+<span class="hljs-keyword">import</span> com.example.sdk.component.annotator.EntityBoundaryAnnotator;
+<span class="hljs-keyword">import</span> com.example.sdk.component.annotator.tokenizer.SplitterTokenAnnotator;
+<span class="hljs-keyword">import</span> com.example.sdk.component.fe.ner.IsFirstNerInFocusElementFE;
+<span class="hljs-keyword">import</span> com.example.sdk.component.processing.grouping.RowBasedGroupingProcessor;
+
+<span class="hljs-meta">@ModelConfiguration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExampleConfiguration</span> </span>{
+
+    <span class="hljs-meta">@Named</span>(<span class="hljs-string">"PostProcessors"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Processor&lt;IeDocument&gt; <span class="hljs-title">postProcessors</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> RowBasedGroupingProcessor();
+    }
+
+    <span class="hljs-meta">@Named</span>(<span class="hljs-string">"Extractors"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Extractor&lt;Element&gt; <span class="hljs-title">Extractors</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> NerInFocusElementFE(Cell.class);
+    }
+
+    <span class="hljs-meta">@Named</span>(<span class="hljs-string">"annotators"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Annotator&gt; <span class="hljs-title">annotators</span><span class="hljs-params">()</span> </span>{
+        List&lt;Annotator&gt; annotators = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        annotators.add(<span class="hljs-keyword">new</span> SplitterTokenAnnotator(<span class="hljs-string">"\\s+"</span>));
+        annotators.add(<span class="hljs-keyword">new</span> EntityBoundaryAnnotator());
+        <span class="hljs-keyword">return</span> annotators;
+    }
+}
+</code></pre>
+<p>The result of this configuration is a Post-Processor from <code>PostProcessors</code>, an  Extractor from <code>Extractors</code> and two Annotators from <code>annotators</code>.</p>
+<h2><a class="anchor" aria-hidden="true" id="configurationcontext"></a><a href="#configurationcontext" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ConfigurationContext</h2>
+<p><code>ConfigurationContext</code> is an interface that provides a map of initial configuration parameters and a reference to a field object. Field value is used to specify settings for a specific sub-model configuration. For example, to apply specific components only to a field with type <code>ADDRESS</code>.</p>
+<p><code>@Named</code> methods can accept a <code>ConfigurationContext</code> object or an <code>IeConfigurationContext</code> object in case of extraction models.</p>
+<p><code>ConfigurationContext</code> and <code>IeConfigurationContext</code> contain methods to access different properties. The most commonly used property is <code>FieldInfo</code> — a class for information extraction, which contains information about the current <em>sub-model</em> configuration. Using this property one <code>@Named</code> method can produce different sets of SDK components for different sub-models using a switch case or an if-else statement.</p>
+<p>The following <code>ConfigurationContext</code> methods are considered the most useful.</p>
+<h3><a class="anchor" aria-hidden="true" id="getfield"></a><a href="#getfield" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getField</h3>
+<p><code>getField</code> gets FieldInfo associated with the current sub-model configuration. For <code>ConfigurationContext</code> that isn't related to the particular field, <code>getField</code> returns empty <code>FieldInfo</code> with code — <code>default</code>.</p>
+<pre><code class="hljs css language-java"><span class="hljs-function">FieldInfo <span class="hljs-title">getField</span><span class="hljs-params">()</span>
+</span></code></pre>
+<p>The following example contains an <code>IeConfigurationContext</code> object. In this case, each SDK configuration produces a different set of Annotators depending on the code type: <code>invoice_number</code> or <code>address</code>.</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-keyword">import</span> com.example.sdk.api.annotation.ModelConfiguration;
+<span class="hljs-keyword">import</span> com.example.sdk.api.annotation.Named;
+<span class="hljs-keyword">import</span> com.example.sdk.api.annotator.Annotator;
+<span class="hljs-keyword">import</span> com.example.sdk.api.configuration.IeConfigurationContext;
+<span class="hljs-keyword">import</span> com.example.sdk.component.annotator.EntityBoundaryAnnotator;
+<span class="hljs-keyword">import</span> com.example.sdk.component.annotator.ner.BaseRegexNerAnnotator;
+<span class="hljs-keyword">import</span> com.example.sdk.component.annotator.tokenizer.SplitterTokenAnnotator;
+
+<span class="hljs-meta">@ModelConfiguration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TrainingIeModelConfiguration</span> </span>{
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String REGEX_SPLITTER_TOKEN = <span class="hljs-string">"\\s+"</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String REGEX_ZIP = <span class="hljs-string">"[0-9]{5}(-[0-9]{4,5})?"</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String REGEX_CITY = <span class="hljs-string">"[A-Z][a-z]{3,18}"</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String REGEX_INVOICE_NUMBER = <span class="hljs-string">"([\\d]{10,11})"</span>;
+
+    <span class="hljs-meta">@Named</span>(<span class="hljs-string">"annotators"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Annotator&gt; <span class="hljs-title">annotators</span><span class="hljs-params">(IeConfigurationContext context)</span> </span>{
+        List&lt;Annotator&gt; annotators = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        annotators.add(<span class="hljs-keyword">new</span> SplitterTokenAnnotator(REGEX_SPLITTER_TOKEN));
+        annotators.add(<span class="hljs-keyword">new</span> EntityBoundaryAnnotator());
+
+        String codeType = context.getField().getCode();
+        <span class="hljs-keyword">switch</span> (codeType) {
+            <span class="hljs-keyword">case</span> <span class="hljs-string">"invoice_number"</span>: {
+                annotators.add(BaseRegexNerAnnotator.getJavaPatternRegexNerAnnotator(<span class="hljs-string">"invoice_number"</span>, REGEX_INVOICE_NUMBER));
+                <span class="hljs-keyword">break</span>;
+            }
+            <span class="hljs-keyword">case</span> <span class="hljs-string">"address"</span>: {
+                annotators.add(BaseRegexNerAnnotator.getJavaPatternRegexNerAnnotator(<span class="hljs-string">"city"</span>, REGEX_CITY));
+                annotators.add(BaseRegexNerAnnotator.getJavaPatternRegexNerAnnotator(<span class="hljs-string">"zip"</span>, REGEX_ZIP));
+                <span class="hljs-keyword">break</span>;
+            }
+        }
+        <span class="hljs-keyword">return</span> annotators;
+    }
+
+}
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="getresource"></a><a href="#getresource" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getResource</h3>
+<pre><code class="hljs css language-java"><span class="hljs-function">Resource <span class="hljs-title">getResource</span><span class="hljs-params">(String path)</span>
+</span></code></pre>
+<p><code>getResource</code> provides a <code>Resource</code> instance for a specified path:</p>
+<ul>
+<li>Classpath resource, for example <strong><em>classpath:test.csv</em></strong>.</li>
+<li>Model resource, for example <strong><em>/ref-data/test.csv</em></strong>, <strong><em>/dictionaries/test.csv</em></strong>, <strong><em>/corrections/test.csv</em></strong>.</li>
+</ul>
+<p>Here's an example of <code>getResource</code> usage with a dictionary.</p>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@Named</span>(<span class="hljs-string">"annotators"</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Annotator&gt; <span class="hljs-title">annotators</span><span class="hljs-params">(IeConfigurationContext context)</span> </span>{
+    List&lt;Annotator&gt; annotators = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+    annotators.add(<span class="hljs-keyword">new</span> AhoCorasickAnnotator(<span class="hljs-string">"company_name"</span>,
+        <span class="hljs-keyword">new</span> CsvDictionaryKeywordProvider(context.getResource(<span class="hljs-string">"/dictionaries/CompanyNames.csv"</span>))));
+    <span class="hljs-keyword">return</span> annotators;
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="inputstream"></a><a href="#inputstream" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>InputStream</h4>
+<pre><code class="hljs css language-java"><span class="hljs-function">InputStream <span class="hljs-title">openInputStream</span><span class="hljs-params">()</span>
+</span></code></pre>
+<p>In case the <code>Resource</code> instance is provided by an external source, use an input stream to read data. The <code>try-with-resources</code> construct should be used to ensure that the opened stream is closed at the end of the statement.</p>
+<h3><a class="anchor" aria-hidden="true" id="getparameter"></a><a href="#getparameter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getParameter</h3>
+<p><code>getParameter</code> gets a configuration parameter (for example, parameter name) acquired externally. This parameter can be used for further advanced model configuration.</p>
+<pre><code class="hljs css language-java"><span class="hljs-function">Object <span class="hljs-title">getParameter</span><span class="hljs-params">(String name)</span>
+</span></code></pre>
+<p>For more information, refer to <code>getParameter()</code> documentation.</p>
+<h2><a class="anchor" aria-hidden="true" id="componentregistry"></a><a href="#componentregistry" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ComponentRegistry</h2>
+<p><code>ComponentRegistry</code> is an interface that provides access to <code>@Named</code> components as Java objects. An instance of such object can be obtained via a <code>@Named</code> method. Using this interface, you can obtain a component instance by ID or internal return type (for example, <code>Extactor.class</code> ).</p>
+<p><code>ComponentRegistry</code> default implementation contains the following methods:</p>
+<ol>
+<li><code>getComponent</code></li>
+<li><code>getComponents</code></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="getcomponent"></a><a href="#getcomponent" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getComponent</h3>
+<p><code>getComponent</code> gets a single component based on a unique component ID.</p>
+<pre><code class="hljs css language-java"><span class="hljs-function">Component <span class="hljs-title">getComponent</span><span class="hljs-params">(String componentName)</span>
+</span></code></pre>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>@componentName</code></td><td><code>@Named</code> component annotation value.</td></tr>
+<tr><td><code>@return</code></td><td>Single component.</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="getcomponents"></a><a href="#getcomponents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getComponents</h3>
+<p><code>getComponents</code> gets a collection of <code>@Named</code> components based on the return type.</p>
+<pre><code class="hljs css language-java"><span class="hljs-function">Collection&lt;Component&gt; <span class="hljs-title">getComponents</span><span class="hljs-params">(Class&lt;?&gt; type)</span>
+</span></code></pre>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>@type</code></td><td>Components type.</td></tr>
+<tr><td><code>@return</code></td><td>Collection of components.</td></tr>
+</tbody>
+</table>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">import</span> com.example.model.configuration.DefaultComponentRegistry;
+<span class="hljs-keyword">import</span> com.example.sdk.api.hpo.Dimensions;
+<span class="hljs-keyword">import</span> com.example.sdk.api.hpo.ParameterSpace;
+<span class="hljs-keyword">import</span> com.example.sdk.api.annotation.ModelConfiguration;
+<span class="hljs-keyword">import</span> com.example.sdk.api.annotation.Named;
+<span class="hljs-keyword">import</span> com.example.sdk.api.annotator.Annotator;
+<span class="hljs-keyword">import</span> com.example.sdk.api.configuration.IeConfigurationContext;
+<span class="hljs-keyword">import</span> com.example.sdk.component.annotator.ner.BaseRegexNerAnnotator;
+
+<span class="hljs-meta">@ModelConfiguration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Config</span> </span>{
+
+   <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String REGEX_ZIP = <span class="hljs-string">"[0-9]{5}(-[0-9]{4,5})?"</span>;
+   <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String REGEX_CITY = <span class="hljs-string">"[A-Z][a-z]{3,18}"</span>;
+   <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String REGEX_INVOICE_NUMBER = <span class="hljs-string">"([\\d]{10,11})"</span>;
+
+   <span class="hljs-meta">@Named</span>(<span class="hljs-string">"a1"</span>)
+   <span class="hljs-function"><span class="hljs-keyword">public</span> Annotator <span class="hljs-title">a1</span><span class="hljs-params">()</span> </span>{
+       <span class="hljs-keyword">return</span> BaseRegexNerAnnotator.getJavaPatternRegexNerAnnotator(<span class="hljs-string">"invoice_number"</span>, REGEX_INVOICE_NUMBER);
+   }
+
+   <span class="hljs-meta">@Named</span>(<span class="hljs-string">"a2"</span>)
+   <span class="hljs-function"><span class="hljs-keyword">public</span> Annotator <span class="hljs-title">a2</span><span class="hljs-params">()</span> </span>{
+       <span class="hljs-keyword">return</span> BaseRegexNerAnnotator.getJavaPatternRegexNerAnnotator(<span class="hljs-string">"zip"</span>, REGEX_ZIP);
+   }
+
+   <span class="hljs-meta">@Named</span>(<span class="hljs-string">"a3"</span>)
+   <span class="hljs-function"><span class="hljs-keyword">public</span> Annotator <span class="hljs-title">a3</span><span class="hljs-params">()</span> </span>{
+       <span class="hljs-keyword">return</span> BaseRegexNerAnnotator.getJavaPatternRegexNerAnnotator(<span class="hljs-string">"city"</span>, REGEX_CITY);
+   }
+
+   <span class="hljs-meta">@Named</span>(<span class="hljs-string">"ExtractorsParameterSpace"</span>)
+   <span class="hljs-function"><span class="hljs-keyword">public</span> ParameterSpace <span class="hljs-title">configureHPO</span><span class="hljs-params">(DefaultComponentRegistry registry, IeConfigurationContext configurationContext)</span> </span>{
+       <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ParameterSpace.Builder()
+               .add(Dimensions.selectOne(registry.getComponent(<span class="hljs-string">"a1"</span>), registry.getComponent(<span class="hljs-string">"a3"</span>)))
+               .build();
+   }
+
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="importing-a-configuration"></a><a href="#importing-a-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Importing a configuration</h2>
+<p>One or multiple configurations can be imported into another configuration to avoid writing one from scratch. In this case, the imported configuration is considered a <em>child</em> and the target configuration is considered a <em>parent</em>. The resulting configuration contains all components from the child configurations and the parent configuration.</p>
+<p>To import a configuration(-s) to another configuration, use the <code>@Import</code> class-level annotation together with <code>@ModelConfiguration</code>. The latter contains a reference to the child configuration class.</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">import</span> com.example.sdk.api.annotation.Import;
+<span class="hljs-keyword">import</span> com.example.sdk.api.annotation.ModelConfiguration;
+<span class="hljs-keyword">import</span> com.example.sdk.api.annotation.Named;
+<span class="hljs-keyword">import</span> com.example.sdk.api.processing.Processor;
+
+<span class="hljs-meta">@ModelConfiguration</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostProcessorConfig</span> </span>{
+
+   <span class="hljs-meta">@Named</span>(<span class="hljs-string">"presentationPostProcessor"</span>)  
+   <span class="hljs-function"><span class="hljs-keyword">public</span> Processor <span class="hljs-title">getPostProcessors</span><span class="hljs-params">()</span> </span>{
+       <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ExamplePostProcessing1();
+   }
+
+   <span class="hljs-meta">@Named</span>(<span class="hljs-string">"basePostProcessor"</span>)  
+   <span class="hljs-function"><span class="hljs-keyword">public</span> Processor <span class="hljs-title">postProcessors</span><span class="hljs-params">()</span> </span>{
+       <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ExamplePostProcessing2();
+   }
+
+}
+
+<span class="hljs-meta">@ModelConfiguration</span>
+<span class="hljs-meta">@Import</span>(configurations = {
+       <span class="hljs-meta">@Import</span>.Configuration(PostProcessorConfig.class)
+})
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostProcessorConfig</span> </span>{
+
+   <span class="hljs-meta">@Named</span>(<span class="hljs-string">"basePostProcessor"</span>)  
+   <span class="hljs-function"><span class="hljs-keyword">public</span> Processor <span class="hljs-title">postProcessors</span><span class="hljs-params">()</span> </span>{
+       <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ExamplePostProcessing3();
+   }
+
+}
+</code></pre>
+<p>The result of <code>PostProcessorConfig</code> processing will consist of all named components from the child <code>PostProcessorConfig</code> configuration and all components from the parent <code>PostProcessorConfig</code> configuration.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/xmpp"><span class="arrow-prev">← </span><span>Integrating XMPP</span></a><a class="docs-next button" href="/docs/bi"><span>Business intelligence</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#configuration">Configuration</a></li><li><a href="#components-configuration">Components configuration</a></li><li><a href="#configurationcontext">ConfigurationContext</a><ul class="toc-headings"><li><a href="#getfield">getField</a></li><li><a href="#getresource">getResource</a></li><li><a href="#getparameter">getParameter</a></li></ul></li><li><a href="#componentregistry">ComponentRegistry</a><ul class="toc-headings"><li><a href="#getcomponent">getComponent</a></li><li><a href="#getcomponents">getComponents</a></li></ul></li><li><a href="#importing-a-configuration">Importing a configuration</a></li></ul></nav></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'my-api-key',
+                indexName: 'my-index-name',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {}
+              });
+            </script></body></html>
