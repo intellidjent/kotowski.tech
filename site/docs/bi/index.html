@@ -1,138 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Business intelligence · Sample docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="The Platform provides a set of business intelligence dashboards with data insights for Games and Services integrated with the Platform. Dashboards are generated based on the data events which communicate changes in the Platform or Game."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Business intelligence · Sample docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/site/"/><meta property="og:description" content="The Platform provides a set of business intelligence dashboards with data insights for Games and Services integrated with the Platform. Dashboards are generated based on the data events which communicate changes in the Platform or Game."/><meta property="og:image" content="https://your-docusaurus-test-site.com/site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/site/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/site/js/scrollSpy.js"></script><link rel="stylesheet" href="/site/css/main.css"/><script src="/site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/site/"><h2 class="headerTitle">Sample docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="http://kotowski.me/" target="_self">Kotowski.me</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Samples</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Samples</h3><ul class=""><li class="navListItem"><a class="navItem" href="/site/docs/xmpp">Integrating XMPP</a></li><li class="navListItem"><a class="navItem" href="/site/docs/sdk-config">Configuring SDK</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/site/docs/bi">Business intelligence</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
 
-<head>
-    <meta charSet="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Business intelligence · Sample docs</title>
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content="Docusaurus" />
-    <meta name="description" content="The Platform provides a set of business intelligence dashboards with data insights for Games and Services integrated with the Platform. Dashboards are generated based on the data events which communicate changes in the Platform or Game." />
-    <meta name="docsearch:language" content="en" />
-    <meta property="og:title" content="Business intelligence · Sample docs" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://your-docusaurus-test-site.com/" />
-    <meta property="og:description" content="The Platform provides a set of business intelligence dashboards with data insights for Games and Services integrated with the Platform. Dashboards are generated based on the data events which communicate changes in the Platform or Game." />
-    <meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg" />
-    <link rel="shortcut icon" href="/img/favicon.png" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
-    <script type="text/javascript" src="https://buttons.github.io/buttons.js"></script>
-    <script src="/js/scrollSpy.js"></script>
-    <link rel="stylesheet" href="../../css/main.css" />
-    <script src="/js/codetabs.js"></script>
-</head>
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
 
-<body class="sideNavVisible separateOnPageNav">
-    <div class="fixedHeaderContainer">
-        <div class="headerWrapper wrapper">
-            <header><a href="/"><h2 class="headerTitle">Sample docs</h2></a>
-                <div class="navigationWrapper navigationSlider">
-                    <nav class="slidingNav">
-                        <ul class="nav-site nav-site-internal">
-                            <li class=""><a href="http://kotowski.me/" target="_self">Kotowski.me</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
-        </div>
-    </div>
-    <div class="navPusher">
-        <div class="docMainWrapper wrapper">
-            <div class="docsNavContainer" id="docsNav">
-                <nav class="toc">
-                    <div class="toggleNav">
-                        <section class="navWrapper wrapper">
-                            <div class="navBreadcrumb wrapper">
-                                <div class="navToggle" id="navToggler">
-                                    <div class="hamburger-menu">
-                                        <div class="line1"></div>
-                                        <div class="line2"></div>
-                                        <div class="line3"></div>
-                                    </div>
-                                </div>
-                                <h2><i>›</i><span>Samples</span></h2>
-                                <div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div>
-                            </div>
-                            <div class="navGroups">
-                                <div class="navGroup">
-                                    <h3 class="navGroupCategoryTitle">Samples</h3>
-                                    <ul class="">
-                                        <li class="navListItem"><a class="navItem" href="/docs/xmpp">Integrating XMPP</a></li>
-                                        <li class="navListItem"><a class="navItem" href="/docs/sdk-config">Configuring SDK</a></li>
-                                        <li class="navListItem navListItemActive"><a class="navItem" href="/docs/bi">Business intelligence</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                    <script>
-                        var coll = document.getElementsByClassName('collapsible');
-                        var checkActiveCategory = true;
-                        for (var i = 0; i < coll.length; i++) {
-                            var links = coll[i].nextElementSibling.getElementsByTagName('*');
-                            if (checkActiveCategory) {
-                                for (var j = 0; j < links.length; j++) {
-                                    if (links[j].classList.contains('navListItemActive')) {
-                                        coll[i].nextElementSibling.classList.toggle('hide');
-                                        coll[i].childNodes[1].classList.toggle('rotate');
-                                        checkActiveCategory = false;
-                                        break;
-                                    }
-                                }
-                            }
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
 
-                            coll[i].addEventListener('click', function() {
-                                var arrow = this.childNodes[1];
-                                arrow.classList.toggle('rotate');
-                                var content = this.nextElementSibling;
-                                content.classList.toggle('hide');
-                            });
-                        }
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
 
-                        document.addEventListener('DOMContentLoaded', function() {
-                            createToggler('#navToggler', '#docsNav', 'docsSliderActive');
-                            createToggler('#tocToggler', 'body', 'tocActive');
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
 
-                            var headings = document.querySelector('.toc-headings');
-                            headings && headings.addEventListener('click', function(event) {
-                                var el = event.target;
-                                while (el !== headings) {
-                                    if (el.tagName === 'A') {
-                                        document.body.classList.remove('tocActive');
-                                        break;
-                                    } else {
-                                        el = el.parentNode;
-                                    }
-                                }
-                            }, false);
+                if (!toggler) {
+                  return;
+                }
 
-                            function createToggler(togglerSelector, targetSelector, className) {
-                                var toggler = document.querySelector(togglerSelector);
-                                var target = document.querySelector(targetSelector);
+                toggler.onclick = function(event) {
+                  event.preventDefault();
 
-                                if (!toggler) {
-                                    return;
-                                }
-
-                                toggler.onclick = function(event) {
-                                    event.preventDefault();
-
-                                    target.classList.toggle(className);
-                                };
-                            }
-                        });
-                    </script>
-                </nav>
-            </div>
-            <div class="container mainContainer">
-                <div class="wrapper">
-                    <div class="post">
-                        <header class="postHeader">
-                            <h1 class="postHeaderTitle">Business intelligence</h1></header>
-                        <article>
-                            <div><span><p>The Platform provides a set of business intelligence dashboards with data insights for Games and Services integrated with the Platform. Dashboards are generated based on the data events which communicate changes in the Platform or Game.</p>
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Business intelligence</h1></header><article><div><span><p>The Platform provides a set of business intelligence dashboards with data insights for Games and Services integrated with the Platform. Dashboards are generated based on the data events which communicate changes in the Platform or Game.</p>
 <p>Depending on the integration depth the Platform generates the following standard dashboards:</p>
 <ul>
 <li><strong>Finance</strong>: royalty reports, gross revenue, PU/new PU, ARPPU/ARPU, products.</li>
@@ -171,105 +93,54 @@ Custom events are the events which allow the Game Publisher or Partner get advan
 <h3><a class="anchor" aria-hidden="true" id="post-event"></a><a href="#post-event" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Post event</h3>
 <p>To ensure further flexibility, the Platform provides a single <code>postEvent</code> HTTP endpoint for sending events, and a set of recommended schemas for basic data flows. Here's an example:</p>
 <pre><code class="hljs">POST https:<span class="hljs-regexp">//</span>api.example.net<span class="hljs-regexp">/api/</span>postEvent<span class="hljs-regexp">/{emitter_name}/</span>{event_name}
-                                </code>
-                                </pre>
-                                <p>For production purposes make sure to replace the test host <code>https://api.example.net</code> with the production host <code>https://{realm}.example.net</code>. Contact the Integration Team for assistance.</p>
-                                <p><strong>Request header</strong></p>
-                                <ul>
-                                    <li><code>Content-Type</code> method accepts only JSON body payloads. Supply the <code>Content-Type: application/json</code> HTTP header when making this request.</li>
-                                    <li><code>server-api-key</code> — authentication API key.</li>
-                                </ul>
-                                <p><strong>Request body</strong></p>
-                                <p>Body parameters are sent as a JSON payload with an agreed upon set of parameters.</p>
-                                <p><strong>Response codes</strong></p>
-                                <ul>
-                                    <li><code>202</code> Accepted. Request has been verified and accepted for processing.</li>
-                                    <li><code>400</code> Bad Request. Request could not be processed by the server due to malformed syntax.</li>
-                                    <li><code>401</code> Unauthorized. Request has not been applied because it lacks valid authentication credentials for the target resource.</li>
-                                    <li><code>403</code> Forbidden. Request was valid, but the server is refusing action. The client might not have the necessary permissions to publish the specified emitter/event.</li>
-                                    <li><code>404</code> Not Found. Proxy has not found the matching configuration in Metadata Registry for the specified emitter name and event name.</li>
-                                    <li><code>415</code> Unsupported Media Type. Proxy is refusing to service the request because the entity of the request has an unsupported format.</li>
-                                    <li><code>422</code> Unprocessable entity. Request payload does not conform to the corresponding AVRO schema.</li>
-                                    <li><code>503</code> Service unavailable. Proxy is currently unable to handle the request due to a temporary overloading or server maintenance.</li>
-                                </ul>
-                                <h3><a class="anchor" aria-hidden="true" id="standard-event"></a><a href="#standard-event" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Standard event</h3>
-                                <p>A standard event data schema has the following parameters. Based on the user activity event sent by games to detect active users.</p>
-                                <p><strong>Request header</strong></p>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th style="text-align:left">Parameter</th>
-                                            <th style="text-align:left">Data Type</th>
-                                            <th style="text-align:left">Description</th>
-                                            <th style="text-align:left">Example</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td style="text-align:left"><code>event_id</code></td>
-                                            <td style="text-align:left">String</td>
-                                            <td style="text-align:left">Generated as described in <a href="https://github.com/alizain/ulid">https://github.com/alizain/ulid</a>.</td>
-                                            <td style="text-align:left"><code>01BWR265F526VQJ6B65H5A72PB</code></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align:left"><code>event_timestamp</code></td>
-                                            <td style="text-align:left">Long</td>
-                                            <td style="text-align:left">The timestamp when the event is created. In milliseconds since the Unix Epoch Time.</td>
-                                            <td style="text-align:left"><code>1518461534010</code></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align:left"><code>emitter_id</code></td>
-                                            <td style="text-align:left">Integer</td>
-                                            <td style="text-align:left">Emitter ID of the game title which is emitting the event.</td>
-                                            <td style="text-align:left"><code>777</code></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p><strong>Request body</strong></p>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Parameter</th>
-                                            <th>Data Type</th>
-                                            <th>Description</th>
-                                            <th>Example</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><code>id</code></td>
-                                            <td>Long</td>
-                                            <td>User ID whose account data is updated.</td>
-                                            <td><code>20000012312</code></td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>activity_type</code></td>
-                                            <td>String</td>
-                                            <td>For most integrated apps, activity equals usage instances. According to Active Users KPI — the total number of unique users who used the app at least one time within the examined period.</td>
-                                            <td><code>battle</code></td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>last_activity_at</code></td>
-                                            <td>Long</td>
-                                            <td>User's last activity in the game. In milliseconds since the Unix Epoch Time.</td>
-                                            <td><code>1518461554811</code></td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>activity_count</code></td>
-                                            <td>Integer</td>
-                                            <td>The number of activities which are defining user's activity.</td>
-                                            <td><code>12</code></td>
-                                        </tr>
-                                        <tr>
-                                            <td><code>level</code></td>
-                                            <td>Integer</td>
-                                            <td>The level of the user's account in the app (or max characters level, if a user has multiple sub-accounts within the account).</td>
-                                            <td><code>80</code></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p>Here is a request example:</p>
-                                <pre><code class="hljs css language-bash">curl -X POST --header <span class="hljs-string">'Content-Type: application/json'</span> --header <span class="hljs-string">'Accept: application/json'</span> --header <span class="hljs-string">'server-api-key: xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx'</span> -d <span class="hljs-string">'{
+</code></pre>
+<p>For production purposes make sure to replace the test host <code>https://api.example.net</code> with the production host <code>https://{realm}.example.net</code>. Contact the Integration Team for assistance.</p>
+<p><strong>Request header</strong></p>
+<ul>
+<li><code>Content-Type</code> method accepts only JSON body payloads. Supply the <code>Content-Type: application/json</code> HTTP header when making this request.</li>
+<li><code>server-api-key</code> — authentication API key.</li>
+</ul>
+<p><strong>Request body</strong></p>
+<p>Body parameters are sent as a JSON payload with an agreed upon set of parameters.</p>
+<p><strong>Response codes</strong></p>
+<ul>
+<li><code>202</code> Accepted. Request has been verified and accepted for processing.</li>
+<li><code>400</code> Bad Request. Request could not be processed by the server due to malformed syntax.</li>
+<li><code>401</code> Unauthorized. Request has not been applied because it lacks valid authentication credentials for the target resource.</li>
+<li><code>403</code> Forbidden. Request was valid, but the server is refusing action. The client might not have the necessary permissions to publish the specified emitter/event.</li>
+<li><code>404</code> Not Found. Proxy has not found the matching configuration in Metadata Registry for the specified emitter name and event name.</li>
+<li><code>415</code> Unsupported Media Type. Proxy is refusing to service the request because the entity of the request has an unsupported format.</li>
+<li><code>422</code> Unprocessable entity. Request payload does not conform to the corresponding AVRO schema.</li>
+<li><code>503</code> Service unavailable. Proxy is currently unable to handle the request due to a temporary overloading or server maintenance.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="standard-event"></a><a href="#standard-event" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Standard event</h3>
+<p>A standard event data schema has the following parameters. Based on the user activity event sent by games to detect active users.</p>
+<p><strong>Request header</strong></p>
+<table>
+<thead>
+<tr><th style="text-align:left">Parameter</th><th style="text-align:left">Data Type</th><th style="text-align:left">Description</th><th style="text-align:left">Example</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><code>event_id</code></td><td style="text-align:left">String</td><td style="text-align:left">Generated as described in <a href="https://github.com/alizain/ulid">https://github.com/alizain/ulid</a>.</td><td style="text-align:left"><code>01BWR265F526VQJ6B65H5A72PB</code></td></tr>
+<tr><td style="text-align:left"><code>event_timestamp</code></td><td style="text-align:left">Long</td><td style="text-align:left">The timestamp when the event is created. In milliseconds since the Unix Epoch Time.</td><td style="text-align:left"><code>1518461534010</code></td></tr>
+<tr><td style="text-align:left"><code>emitter_id</code></td><td style="text-align:left">Integer</td><td style="text-align:left">Emitter ID of the game title which is emitting the event.</td><td style="text-align:left"><code>777</code></td></tr>
+</tbody>
+</table>
+<p><strong>Request body</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Data Type</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr><td><code>id</code></td><td>Long</td><td>User ID whose account data is updated.</td><td><code>20000012312</code></td></tr>
+<tr><td><code>activity_type</code></td><td>String</td><td>For most integrated apps, activity equals usage instances. According to Active Users KPI — the total number of unique users who used the app at least one time within the examined period.</td><td><code>battle</code></td></tr>
+<tr><td><code>last_activity_at</code></td><td>Long</td><td>User's last activity in the game. In milliseconds since the Unix Epoch Time.</td><td><code>1518461554811</code></td></tr>
+<tr><td><code>activity_count</code></td><td>Integer</td><td>The number of activities which are defining user's activity.</td><td><code>12</code></td></tr>
+<tr><td><code>level</code></td><td>Integer</td><td>The level of the user's account in the app (or max characters level, if a user has multiple sub-accounts within the account).</td><td><code>80</code></td></tr>
+</tbody>
+</table>
+<p>Here is a request example:</p>
+<pre><code class="hljs css language-bash">curl -X POST --header <span class="hljs-string">'Content-Type: application/json'</span> --header <span class="hljs-string">'Accept: application/json'</span> --header <span class="hljs-string">'server-api-key: xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx'</span> -d <span class="hljs-string">'{
     "header": {
         "event_id": "01BWR265F526VQJ6B65H5A72D",
         "event_timestamp": 1518461534010,
@@ -284,32 +155,7 @@ Custom events are the events which allow the Game Publisher or Partner get advan
     }
 }'</span> <span class="hljs-string">'https://api.example.net/api/postEvent/{emitter_name}/useractivity'</span>
 </code></pre>
-                                <h3><a class="anchor" aria-hidden="true" id="custom-event"></a><a href="#custom-event" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom event</h3>
-                                <p>Custom events have no strictly pre-defined event body schema and therefore should follow the conventions mentioned in the <a href="#sending-events">Sending events</a> section.</p>
-                                <p>Before sending custom events, provide the Integration Team with event body parameters following this pattern: parameter name, data type, description, and example value.</p>
-                                </span>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="docs-prevnext"><a class="docs-prev button" href="/docs/sdk-config"><span class="arrow-prev">← </span><span>Configuring SDK</span></a></div>
-                </div>
-            </div>
-            <nav class="onPageNav">
-                <ul class="toc-headings">
-                    <li><a href="#platform-events">Platform events</a></li>
-                    <li><a href="#game-events">Game events</a></li>
-                    <li><a href="#sending-events">Sending events</a>
-                        <ul class="toc-headings">
-                            <li><a href="#event-naming-and-schema-conventions">Event naming and schema conventions</a></li>
-                            <li><a href="#post-event">Post event</a></li>
-                            <li><a href="#standard-event">Standard event</a></li>
-                            <li><a href="#custom-event">Custom event</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</body>
-
-</html>
+<h3><a class="anchor" aria-hidden="true" id="custom-event"></a><a href="#custom-event" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom event</h3>
+<p>Custom events have no strictly pre-defined event body schema and therefore should follow the conventions mentioned in the <a href="#sending-events">Sending events</a> section.</p>
+<p>Before sending custom events, provide the Integration Team with event body parameters following this pattern: parameter name, data type, description, and example value.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/site/docs/sdk-config"><span class="arrow-prev">← </span><span>Configuring SDK</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#platform-events">Platform events</a></li><li><a href="#game-events">Game events</a></li><li><a href="#sending-events">Sending events</a><ul class="toc-headings"><li><a href="#event-naming-and-schema-conventions">Event naming and schema conventions</a></li><li><a href="#post-event">Post event</a></li><li><a href="#standard-event">Standard event</a></li><li><a href="#custom-event">Custom event</a></li></ul></li></ul></nav></div></div></body></html>
