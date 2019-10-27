@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Python Classifiers · Sample docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Starting SDK v10.0 you can extend your [SDK configuration](sdk-config) with a set of Python classifiers based on Scikit-learn, MXNet, etc. SDK extension allows using ML algorithms implemented in Python with pipelines."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Python Classifiers · Sample docs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/site/"/><meta property="og:description" content="Starting SDK v10.0 you can extend your [SDK configuration](sdk-config) with a set of Python classifiers based on Scikit-learn, MXNet, etc. SDK extension allows using ML algorithms implemented in Python with pipelines."/><meta property="og:image" content="https://your-docusaurus-test-site.com/site/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/site/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/site/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/site/js/scrollSpy.js"></script><link rel="stylesheet" href="/site/css/main.css"/><script src="/site/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/site/"><h2 class="headerTitle">Sample docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="http://kotowski.me/" target="_self">Kotowski.me</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>SDK</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Samples</h3><ul class=""><li class="navListItem"><a class="navItem" href="/site/docs/xmpp">Integrating XMPP</a></li><li class="navListItem"><a class="navItem" href="/site/docs/bi">Business intelligence</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">SDK</h4><ul><li class="navListItem"><a class="navItem" href="/site/docs/sdk-config">Configuring SDK</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/site/docs/python-classifiers">Python Classifiers</a></li></ul></div></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Python Classifiers</h1></header><article><div><span><p>Starting SDK v10.0 you can extend your <a href="sdk-config">SDK configuration</a> with a set of Python classifiers based on Scikit-learn, MXNet, etc. SDK extension allows using ML algorithms implemented in Python with pipelines.</p>
+<p>Here's a list of supported classifiers:</p>
+<ul>
+<li>GenericPythonClassifier</li>
+<li>DpLogisticRegressionClassifier</li>
+<li>DpSvmClassifier</li>
+<li>AdaBoostClassifier</li>
+<li>BaggingClassifier</li>
+<li>DecisionTreeClassifier</li>
+<li>ExtraTreeClassifier</li>
+<li>ExtraTreesClassifier</li>
+<li>GradientBoostingClassifier</li>
+<li>KNeighborsClassifier</li>
+<li>LinearSupportVectorClassifier</li>
+<li>LogisticRegression</li>
+<li>LogisticRegressionCV</li>
+<li>RandomForestClassifier</li>
+<li>StochasticGradientDescentClassifier</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="setting-up-development-environment"></a><a href="#setting-up-development-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up development environment</h2>
+<p>This section contains instructions for setting up the local development environment for proper building and running a custom model with Python model support.</p>
+<h3><a class="anchor" aria-hidden="true" id="installing-system-packages"></a><a href="#installing-system-packages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installing system packages</h3>
+<p>Install the required system packages (Python, libraries, compiler, etc.).</p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-1-tab-2" class="nav-link active" data-group="group_1" data-tab="tab-group-1-content-2">Windows</div><div id="tab-group-1-tab-3" class="nav-link" data-group="group_1" data-tab="tab-group-1-content-3">macOS</div><div id="tab-group-1-tab-4" class="nav-link" data-group="group_1" data-tab="tab-group-1-content-4">Linux</div></div><div class="tab-content"><div id="tab-group-1-content-2" class="tab-pane active" data-group="group_1" tabindex="-1"><div><span><p><br>
+On Windows, follow these steps:</p>
+<ol>
+<li><p>Install <a href="https://visualstudio.microsoft.com/downloads/">Visual Studio 2017 Community Edition</a>.</p></li>
+<li><p>Install <a href="https://www.python.org/ftp/python/2.7.16/python-2.7.16.amd64.msi">Python 2.7.16</a> or higher.</p></li>
+<li><p>Check that <a href="https://pypi.org/project/pip/">pip</a> is installed.</p>
+<pre><code class="hljs css language-bash">&lt;python_installed_dir&gt;/python -m pip<br /></code></pre></li>
+</ol>
+<p>If an error occurs, install pip:</p>
+<ol>
+<li><p>Download <em>get-pip.py</em> with curl or via browser.</p>
+<pre><code class="hljs css language-bash">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py<br /></code></pre></li>
+<li><p>Install pip.</p>
+<pre><code class="hljs css language-bash">&lt;python_installed_dir&gt;/python get-pip.py<br /></code></pre></li>
+</ol>
+</span></div></div><div id="tab-group-1-content-3" class="tab-pane" data-group="group_1" tabindex="-1"><div><span><p><br>
+On macOS, proceed with these steps:</p>
+<ol>
+<li><p><a href="https://www.python.org/ftp/python/2.7.16/python-2.7.16-macosx10.9.pkg">Download</a> and install Python 2.7.16 (or higher).</p></li>
+<li><p>Install the Compiler (GNU Compiler Collection) with the following command:</p>
+<pre><code class="hljs css language-bash">brew install gcc<br /></code></pre></li>
+</ol>
+</span></div></div><div id="tab-group-1-content-4" class="tab-pane" data-group="group_1" tabindex="-1"><div><span><p><br>
+On Linux, run one of the following commands:</p>
+<ul>
+<li><p>Install Python on Fedora.</p>
+<pre><code class="hljs css language-bash">dnf install gcc python2 python-devel libstdc++<br /></code></pre></li>
+<li><p>Install Python on Ubuntu.</p>
+<pre><code class="hljs css language-bash">apt-get install gcc python2.7 python-dev python-pip<br /></code></pre></li>
+</ul>
+</span></div></div></div></div>
+<p>Finally, add Python 2.7 <code>&lt;python_installed_dir&gt;</code> to the environment variable PATH, if it's not there already.</p>
+<h3><a class="anchor" aria-hidden="true" id="installing-python-packages"></a><a href="#installing-python-packages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installing Python packages</h3>
+<p>Before proceeding with package installation <strong>quit all instances of Terminal or Command line and start a new one</strong>.</p>
+<p>To install the required Python packages, run the following command:</p>
+<pre><code class="hljs css language-bash">python -m pip install --user pip==19.0.2 setuptools==40.8.0 wheel==0.33.0 mxnet==1.3.1 scikit-learn==0.20.2 mock==2.0.0
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="using-virtual-environment"></a><a href="#using-virtual-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using virtual environment</h4>
+<p>If you want to use a virtual environment, follow these steps:</p>
+<ol>
+<li><p>Set the environment variables with this command:</p>
+<pre><code class="hljs css language-bash">PYTHON_BIN=&lt;path_to_python_binary_file&gt;
+</code></pre></li>
+<li><p>Use these steps to set the variables:</p>
+<ul>
+<li>MacOS: <code>~/.bash_profile</code> &gt; <code>export &lt;VARIABLE&gt;=&lt;VALUE&gt;</code></li>
+<li>Linux: <code>~/.bashrc</code> &gt; <code>export &lt;VARIABLE&gt;=&lt;VALUE&gt;</code></li>
+<li>Windows: My Computer &gt; Properties / Environment variables &gt; <code>&lt;VARIABLE&gt;=&lt;VALUE&gt;</code></li>
+</ul></li>
+<li><p>Quit and restart Terminal or IDE.</p></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="using-python-classifiers"></a><a href="#using-python-classifiers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using Python classifiers</h2>
+<p>To implement a Python classifier, use the <code>Config</code> @Named entity in your <a href="sdk-config">SDK configuration</a>.</p>
+<p>Here's an example of implementing <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">RandomForestClassifier</a> with default parameters.</p>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@Named</span>(<span class="hljs-string">"Config"</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> Classifier <span class="hljs-title">Config</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> RandomForestClassifier.builder()
+            .build();
+}
+</code></pre>
+<p>Here's an example implementing <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">RandomForestClassifier</a> with custom parameters, such as <code>maxDepth</code>, <code>estimators</code>, and <code>maxFeatures</code>.</p>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@Named</span>(<span class="hljs-string">"Config"</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> Classifier <span class="hljs-title">mlConfig</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> RandomForestClassifier.builder()
+            .maxDepth(<span class="hljs-number">10</span>)
+            .estimators(<span class="hljs-number">100</span>)
+            .maxFeatures(MaxFeaturesType.LOG2)
+            .build();
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/site/docs/sdk-config"><span class="arrow-prev">← </span><span>Configuring SDK</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#setting-up-development-environment">Setting up development environment</a><ul class="toc-headings"><li><a href="#installing-system-packages">Installing system packages</a></li><li><a href="#installing-python-packages">Installing Python packages</a></li></ul></li><li><a href="#using-python-classifiers">Using Python classifiers</a></li></ul></nav></div></div></body></html>
