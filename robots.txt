@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
 Sitemap: https://kotowski.me/sitemap.xml
-
-# Disallow crawling of resume PDFs except the latest
- 

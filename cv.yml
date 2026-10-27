@@ -1,0 +1,164 @@
+# The single source for kotowski.me. Edit this file, then run:
+#
+#     python3 build.py
+#
+# That rebuilds index.html, cv.md, llms.txt, sitemap.xml and the PDF.
+# Inline markup: [text](url) for links, ==text== for the yellow highlight.
+
+updated: 2026-10-27
+url: https://kotowski.me
+name: Ruslan Kotowski
+# Positioning title for the page header, browser tab and social image. The job
+# title under experience stays the official one, and structured data uses that.
+title: Senior Technical Writer & Docs Engineer
+headline: Developer docs, docs-as-code & AI-assisted authoring
+location: Amsterdam, Netherlands
+photo: img/headshot.jpg
+pdf: Ruslan_Kotowski_CV.pdf
+
+summary: >-
+  Senior Technical Writer with 13 years in software documentation: API
+  references, developer portals, and the systems that publish them. At
+  [==Miro==](https://miro.com/), I lead the Help Center's move to docs-as-code.
+  Nearly 1,000 articles are now written in Git, checked and published by a
+  pipeline I built, and readable by AI agents as well as people. Based in
+  Amsterdam, open to remote work.
+
+# Search results, social previews, structured data and llms.txt. Third person
+# on purpose: answer engines quote sentences that name who they're about.
+# Keep it under ~160 characters.
+description: >-
+  Ruslan Kotowski is a Senior Technical Writer at Miro in Amsterdam who led
+  the move of Miro's Help Center to docs-as-code and builds AI tooling for
+  docs teams.
+
+contact:
+  email: kotowski.ruslan@gmail.com
+  phone: +31 68 758 43 50
+  linkedin: https://www.linkedin.com/in/ruslankotowski/
+
+experience:
+  - company: Miro
+    url: https://miro.com/
+    roles:
+      - title: Senior Technical Writer
+        dates: Nov 2023 – Present
+        summary: >-
+          I lead the Help Center's move to docs-as-code: I pitched it and own
+          it, and I built most of the tooling with AI coding agents. It's my
+          second complete docs-as-code migration, after WorkFusion.
+        highlights:
+          - >-
+            Moved nearly 1,000 English articles out of Zendesk's editor and
+            into Git.
+          - >-
+            Built the pipeline in Python and GitHub Actions. It covers
+            publishing (hierarchy, ordering, audience permissions, HTML
+            cleanup) and a round-trip check that nothing is lost between
+            Markdown and HTML.
+          - >-
+            Wrote the AI tooling for the writing team: 8 reusable agent skills
+            (scaffold, move and retire articles; formatting and pre-publish
+            checks) and a shared AGENTS.md, so Claude Code, Cursor and Codex
+            all follow the same authoring rules.
+          - >-
+            Wrote the authoring standard and a Git guide for writers, and
+            review most contributors' pull requests (56 of 78 so far).
+            Engineers now open doc fixes as PRs too.
+          - >-
+            Added checks to every pull request: front matter, links, Vale
+            style rules, spelling, and audience gating. That's 20+ CI workflows
+            and 100+ test files.
+          - >-
+            Made the Help Center readable for AI agents with llms.txt and
+            per-area Markdown bundles built from the same source.
+          # TODO: uncomment only if this is how you usually work.
+          # - >-
+          #   Check articles against the product's source code (UI strings,
+          #   service config) with AI agents, so the docs describe what
+          #   actually ships.
+          - >-
+            Linked every article to the engineering team that owns its feature
+            in the service catalog, so outdated docs have a named owner.
+          - >-
+            Led the redesign of the Help Center's Zendesk Guide theme, live
+            since October 2026: full navigation, ⌘K search, dark mode and a
+            Copy page menu for AI tools.
+          # TODO: if the Developer Platform work included the JavaScript SDK,
+          # use this wording instead (the Ably role asks for JavaScript):
+          #   Wrote API references, JavaScript SDK guides and developer
+          #   onboarding for the Miro Developer Platform with 15+ engineering
+          #   teams.
+          - >-
+            Wrote API documentation and developer onboarding guides for the
+            Miro Developer Platform with 15+ engineering teams.
+
+  - company: Adyen
+    url: https://www.adyen.com/
+    roles:
+      - title: Technical Writer
+        dates: Aug 2020 – Oct 2023
+        # TODO: if you documented webhooks, add them after "200+ endpoints"
+        # (the Ably role lists event-driven architecture as a nice-to-have).
+        summary: >-
+          Wrote and maintained developer documentation for Adyen's payment
+          products: API references for 200+ endpoints, authentication flows,
+          and integration guides. Worked with product teams to keep the docs in
+          step with releases.
+
+  - company: WorkFusion
+    url: https://www.workfusion.com/
+    roles:
+      - title: Technical Writer
+        dates: May 2018 – Apr 2020
+        summary: >-
+          Owned documentation for WorkFusion's AI and automation platforms. Led
+          the move to docs-as-code and migrated 500+ articles into Git-based
+          workflows.
+
+  - company: Wargaming.net
+    url: https://wargaming.net/
+    roles:
+      - title: Technical Writer
+        dates: Sep 2015 – May 2018
+        summary: >-
+          Wrote technical documentation for Wargaming's games and platforms,
+          used by 100+ developers, managers, and third-party publishers. Set up
+          content delivery for external developer partners across 12 markets.
+      - title: Technical Writer / Business Analyst
+        dates: May 2013 – Sep 2015
+        summary: >-
+          Documented game platforms and digital stores. Coordinated
+          localization across 8 markets and wrote content for global game
+          launches.
+
+skills:
+  - category: Documentation
+    items:
+      - API references and guides
+      - Content standards and PR review
+      - Information architecture
+      - Localization workflows
+  - category: Docs-as-code
+    items:
+      - Markdown, Git and GitHub
+      - GitHub Actions CI/CD
+      - Vale, Docusaurus, Zendesk Guide
+      - Python automation
+  - category: AI and web
+    items:
+      - Agent skills and prompts (Claude Code, Cursor)
+      - llms.txt and AI-readable docs
+      - JavaScript code samples, HTML/CSS
+      - REST APIs
+
+# Selected work, shown as cards in this order. Two kinds of entry:
+#   - page: work/<slug>.md     a case study on this site; its title and
+#                              summary come from the page's front matter
+#   - kind: Published docs     a link to a public page you wrote
+#     title: Short page title
+#     url: https://...
+#     note: One line on what it shows.
+work:
+  - page: work/help-center-docs-as-code.md
+  - page: work/help-center-redesign.md

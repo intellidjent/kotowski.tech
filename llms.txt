@@ -1,0 +1,20 @@
+# Ruslan Kotowski
+
+> Ruslan Kotowski is a Senior Technical Writer at Miro in Amsterdam who led the move of Miro's Help Center to docs-as-code and builds AI tooling for docs teams.
+
+Senior Technical Writer with 13 years in software documentation: API references, developer portals, and the systems that publish them. At Miro, I lead the Help Center's move to docs-as-code. Nearly 1,000 articles are now written in Git, checked and published by a pipeline I built, and readable by AI agents as well as people. Based in Amsterdam, open to remote work.
+
+## CV
+
+- [CV in Markdown](https://kotowski.me/cv.md): Experience, skills, and contact details.
+- [CV as PDF](https://kotowski.me/Ruslan_Kotowski_CV.pdf): The same CV, formatted for print.
+
+## Work
+
+- [Moving a 1,000-article Help Center to docs-as-code](https://kotowski.me/work/help-center-docs-as-code.md): How I moved Miro's Help Center out of Zendesk's editor and into Git, and switched publishing over without readers noticing.
+- [Redesigning the Miro Help Center](https://kotowski.me/work/help-center-redesign.md): How I rebuilt the Help Center's Zendesk theme so readers find answers faster, in their own language, and can hand any article to an AI assistant.
+
+## Contact
+
+- [Email](mailto:kotowski.ruslan@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/ruslankotowski/)

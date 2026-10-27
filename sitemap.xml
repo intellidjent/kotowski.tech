@@ -2,9 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://kotowski.me/</loc>
-        <lastmod>2024-01-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
+        <lastmod>2026-10-27</lastmod>
     </url>
-
-</urlset> 
+    <url>
+        <loc>https://kotowski.me/work/help-center-docs-as-code.html</loc>
+        <lastmod>2026-10-27</lastmod>
+    </url>
+    <url>
+        <loc>https://kotowski.me/work/help-center-redesign.html</loc>
+        <lastmod>2026-10-27</lastmod>
+    </url>
+</urlset>

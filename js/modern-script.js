@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
     initSmoothScrolling();
     initHeaderEffects();
-    initAnimations();
     initInteractiveElements();
     initMobileSupport();
 });
@@ -93,41 +92,6 @@ function updateActiveNavigation(activeLink) {
     activeLink.classList.add('active');
 }
 
-// Initialize scroll-based animations
-function initAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // Observe timeline items and skill categories
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    const skillCategories = document.querySelectorAll('.skill-category');
-    
-    timelineItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(30px)';
-        item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(item);
-    });
-    
-    skillCategories.forEach((category, index) => {
-        category.style.opacity = '0';
-        category.style.transform = 'translateY(30px)';
-        category.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(category);
-    });
-}
-
 // Interactive elements
 function initInteractiveElements() {
     // Profile image hover effect
@@ -179,34 +143,8 @@ function initInteractiveElements() {
     });
 }
 
-// Mobile support and touch interactions
+// Mobile support
 function initMobileSupport() {
-    // Handle mobile navigation
-    let touchStartY = 0;
-    let touchEndY = 0;
-    
-    function handleTouchStart(e) {
-        touchStartY = e.touches[0].clientY;
-    }
-    
-    function handleTouchMove(e) {
-        touchEndY = e.touches[0].clientY;
-    }
-    
-    function handleTouchEnd() {
-        const swipeThreshold = 50;
-        const swipeDistance = touchStartY - touchEndY;
-        
-        if (Math.abs(swipeDistance) > swipeThreshold) {
-            // Optional: Add swipe gestures for mobile navigation
-            console.log('Swipe detected:', swipeDistance > 0 ? 'up' : 'down');
-        }
-    }
-    
-    document.addEventListener('touchstart', handleTouchStart, { passive: true });
-    document.addEventListener('touchmove', handleTouchMove, { passive: true });
-    document.addEventListener('touchend', handleTouchEnd, { passive: true });
-    
     // Adjust animations for mobile
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
     if (isMobile) {
@@ -256,25 +194,6 @@ window.addEventListener('scroll', throttle(function() {
     });
 }, 16), { passive: true });
 
-// Print functionality
-function initPrintSupport() {
-    window.addEventListener('beforeprint', function() {
-        // Ensure all content is visible for printing
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        const skillCategories = document.querySelectorAll('.skill-category');
-        
-        timelineItems.forEach(item => {
-            item.style.opacity = '1';
-            item.style.transform = 'none';
-        });
-        
-        skillCategories.forEach(category => {
-            category.style.opacity = '1';
-            category.style.transform = 'none';
-        });
-    });
-}
-
 // Accessibility improvements
 function initAccessibility() {
     // Keyboard navigation support
@@ -319,19 +238,8 @@ function initAccessibility() {
     document.body.insertBefore(skipLink, document.body.firstChild);
 }
 
-// Dark mode support (optional)
-function initDarkModeSupport() {
-    // Check for system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // Optional: Add dark mode classes or CSS variables
-        console.log('Dark mode preferred');
-    }
-}
-
 // Initialize additional features
-initPrintSupport();
 initAccessibility();
-initDarkModeSupport();
 
 // Export functions for potential external use
 window.ResumeWebsite = {
@@ -348,31 +256,5 @@ window.ResumeWebsite = {
         }
     },
     
-    updateNavigation: updateActiveNavigation,
-    
-    // Method to programmatically trigger animations
-    triggerAnimations: function() {
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        const skillCategories = document.querySelectorAll('.skill-category');
-        
-        timelineItems.forEach(item => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-        });
-        
-        skillCategories.forEach(category => {
-            category.style.opacity = '1';
-            category.style.transform = 'translateY(0)';
-        });
-    }
+    updateNavigation: updateActiveNavigation
 };
-
-// Performance monitoring
-if (typeof performance !== 'undefined') {
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-            console.log('Page loaded in', loadTime, 'ms');
-        }, 100);
-    });
-} 

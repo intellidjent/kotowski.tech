@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$page_title</title>
+    <meta name="description" content="$description">
+    <meta name="author" content="$name">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="$title">
+    <meta property="og:description" content="$description">
+    <meta property="og:url" content="$url">
+    <meta property="og:image" content="$site/img/social-preview.png">
+    <meta property="og:site_name" content="$name">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Canonical URL and the Markdown source -->
+    <link rel="canonical" href="$url">
+    <link rel="alternate" type="text/markdown" href="$markdown">
+
+    <!-- Structured Data for AI/Search -->
+    <script type="application/ld+json">
+$jsonld
+    </script>
+
+    <!-- Favicons -->
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon-180x180.png">
+    <meta name="theme-color" content="#6B46C1">
+
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Manrope:wght@600..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/modern-style.css">
+</head>
+<body>
+    <!-- Generated from $source by build.py. Edit that file, not this one. -->
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+$nav
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main" id="main">
+        <article class="case-study">
+            <div class="container">
+                <p class="case-study-back"><a href="../#work" class="link">← All work</a></p>
+                <header class="case-study-header">
+                    <h1 class="case-study-title">$title</h1>
+                    <p class="case-study-meta">$role<br>$dates</p>
+                    <p class="case-study-summary">$summary</p>
+                </header>
+                <div class="case-study-body">
+$body
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">$footer</p>
+        </div>
+    </footer>
+</body>
+</html>

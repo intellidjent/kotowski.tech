@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 462" width="440" height="462" role="img" aria-labelledby="t">
+  <title id="t">Help Center publishing pipeline</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-anchor: middle; }
+    .box { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .main { fill: #6B46C1; }
+    .h { font-size: 15px; font-weight: 600; fill: #1a1a1a; }
+    .s { font-size: 12.5px; fill: #64748b; }
+    .hw { font-size: 15px; font-weight: 600; fill: #ffffff; }
+    .sw { font-size: 12.5px; fill: #e9d5ff; }
+    .edge { stroke: #94a3b8; stroke-width: 1.5; fill: none; marker-end: url(#a); }
+    .label { font-size: 12px; fill: #64748b; text-anchor: start; }
+  </style>
+
+  <rect class="box" x="20" y="10" width="400" height="60" rx="10"/>
+  <text class="h" x="220" y="36">Writers and engineers</text>
+  <text class="s" x="220" y="57">Markdown + front matter · agent skills</text>
+
+  <path class="edge" d="M220 70V100"/>
+  <text class="label" x="230" y="90">pull request</text>
+
+  <rect class="box" x="20" y="104" width="400" height="60" rx="10"/>
+  <text class="h" x="220" y="130">Checks on every pull request</text>
+  <text class="s" x="220" y="151">front matter · links · Vale · spelling · order · audience</text>
+
+  <path class="edge" d="M220 164V194"/>
+  <text class="label" x="230" y="184">merge</text>
+
+  <rect class="main" x="20" y="198" width="400" height="56" rx="10"/>
+  <text class="hw" x="220" y="222">main branch in Git</text>
+  <text class="sw" x="220" y="243">the only place English is written</text>
+
+  <path class="edge" d="M220 254V270H115V296"/>
+  <path class="edge" d="M220 254V270H325V296"/>
+  <text class="label" x="123" y="289">every merge</text>
+  <text class="label" x="333" y="289">built in CI</text>
+
+  <rect class="box" x="20" y="300" width="190" height="56" rx="10"/>
+  <text class="h" x="115" y="324">Zendesk sandbox</text>
+  <text class="s" x="115" y="344">preview of every change</text>
+
+  <rect class="box" x="230" y="300" width="190" height="56" rx="10"/>
+  <text class="h" x="325" y="324">llms.txt + Markdown</text>
+  <text class="s" x="325" y="344">public articles only</text>
+
+  <path class="edge" d="M115 356V392"/>
+  <text class="label" x="123" y="378">manual or scheduled</text>
+  <path class="edge" d="M325 356V392"/>
+  <text class="label" x="333" y="378">read by</text>
+
+  <rect class="box" x="20" y="396" width="190" height="56" rx="10"/>
+  <text class="h" x="115" y="420">Zendesk production</text>
+  <text class="s" x="115" y="440">help.miro.com</text>
+
+  <rect class="box" x="230" y="396" width="190" height="56" rx="10"/>
+  <text class="h" x="325" y="420">AI assistants</text>
+  <text class="s" x="325" y="440">clean text, not pages</text>
+</svg>

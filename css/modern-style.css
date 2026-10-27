@@ -182,6 +182,11 @@ h1, h2, h3, h4, h5, h6,
     line-height: 1.7;
 }
 
+/* Contact line under the name: print and PDF only */
+.hero-contact {
+    display: none;
+}
+
 .hero-actions {
     display: flex;
     gap: 1rem;
@@ -402,6 +407,187 @@ section {
     line-height: 1.6;
 }
 
+.timeline-highlights {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 1rem 0 0 1.25rem;
+}
+
+.timeline-highlights li {
+    margin-bottom: 0.5rem;
+}
+
+.timeline-highlights li:last-child {
+    margin-bottom: 0;
+}
+
+/* Earlier roles at the same company */
+.timeline-role + .timeline-role {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Work Section */
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.work-card {
+    display: block;
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border-top: 4px solid var(--accent-color);
+    box-shadow: var(--shadow);
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.work-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.work-kind {
+    display: inline-block;
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.work-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.work-note {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Case study pages */
+.case-study {
+    padding: 3rem 0 4rem;
+}
+
+.case-study .container {
+    max-width: 760px;
+}
+
+.case-study-back {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+.case-study-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+}
+
+.case-study-meta {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+}
+
+.case-study-summary {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.case-study-body {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+}
+
+.case-study-body h2 {
+    color: var(--text-primary);
+    font-size: 1.6rem;
+    margin: 2.5rem 0 1rem;
+}
+
+.case-study-body h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin: 2rem 0 0.5rem;
+}
+
+.case-study-body p,
+.case-study-body ul,
+.case-study-body ol {
+    margin-bottom: 1.1rem;
+}
+
+.case-study-body ul,
+.case-study-body ol {
+    padding-left: 1.5rem;
+}
+
+.case-study-body li {
+    margin-bottom: 0.4rem;
+}
+
+.case-study-body strong {
+    color: var(--text-primary);
+}
+
+.case-study-body a {
+    color: var(--accent-color);
+}
+
+.case-study-body code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9em;
+    background: var(--background-accent);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+}
+
+.case-study-body img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 2rem auto;
+}
+
+/* Screenshots */
+.case-study-body figure {
+    margin: 2rem 0;
+}
+
+.case-study-body figure img {
+    width: 100%;
+    margin: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.case-study-body figcaption {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 0.6rem;
+}
+
 /* Skills Section */
 .skills-grid {
     display: grid;
@@ -525,9 +711,13 @@ section {
 }
 
 .footer-text {
-    color: var(--text-light);
+    color: #cbd5e1;
     position: relative;
     z-index: 1;
+}
+
+.footer-text a {
+    color: inherit;
 }
 
 /* Responsive Design */
@@ -581,6 +771,10 @@ section {
     .section-title {
         font-size: 2rem;
     }
+
+    .case-study-title {
+        font-size: 2rem;
+    }
     
     .timeline::before {
         left: 1rem;
@@ -614,6 +808,16 @@ section {
 }
 
 @media (max-width: 480px) {
+    /* Five nav links fit on a 320px screen */
+    .nav-container {
+        gap: 0.25rem;
+    }
+
+    .nav-link {
+        padding: 0.5rem 0.35rem;
+        font-size: 0.8125rem;
+    }
+
     .hero {
         padding: 2rem 1.5rem 4rem;
     }
@@ -687,7 +891,24 @@ section {
     animation: fadeInUp 0.6s ease-out;
 }
 
-/* Print Styles */
+/* Visitors who turn motion off get none */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Print Styles (also the layout of the PDF, which build.py prints with Chrome) */
+@page {
+    size: A4;
+    margin: 14mm 16mm;
+}
+
 @media print {
     * {
         box-shadow: none !important;
@@ -695,16 +916,33 @@ section {
         animation: none !important;
         transition: none !important;
     }
-    
+
     body {
-        font-size: 12pt;
+        font-size: 10.5pt;
         line-height: 1.4;
         color: #000;
         background: white;
     }
-    
-    .header, .footer, .nav, .hero-actions, .btn, .link {
+
+    .header, .footer, .nav, .hero-actions, .btn, .contact {
         display: none !important;
+    }
+
+    .link {
+        color: #000;
+        border: none;
+    }
+
+    .hero-contact {
+        display: block;
+        font-size: 10pt;
+        color: #333;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-contact a {
+        color: #333;
+        text-decoration: none;
     }
     
     .main {
@@ -731,6 +969,8 @@ section {
         align-items: flex-start;
         gap: 2rem;
         grid-template-columns: none;
+        text-align: left;
+        padding: 0;
     }
     
     .hero-text {
@@ -753,16 +993,20 @@ section {
     }
     
     .hero-description {
-        font-size: 11pt;
+        font-size: 10.5pt;
         color: #444;
         margin-bottom: 0;
-        line-height: 1.3;
+        line-height: 1.4;
     }
     
+    /* Inline and unpositioned, so PDF text extraction keeps it in reading order */
     .miro-highlight {
         background: #fff;
         padding: 0;
+        margin: 0;
         transform: none;
+        display: inline;
+        position: static;
         font-weight: 600;
         color: #000;
     }
@@ -795,8 +1039,7 @@ section {
     
     section {
         padding: 1rem 0;
-        page-break-inside: avoid;
-        background: white;
+        background: white !important;
     }
     
     /* Experience Section */
@@ -810,10 +1053,35 @@ section {
     }
     
     .timeline-item {
-        padding: 0 0 1.25rem 0;
-        margin-bottom: 1.25rem;
+        padding: 0 0 1rem 0;
+        margin-bottom: 1rem;
         border-bottom: 1px solid #eee;
-        page-break-inside: avoid;
+    }
+
+    .timeline-role {
+        break-inside: avoid;
+    }
+
+    .timeline-header {
+        break-after: avoid;
+    }
+
+    .timeline-highlights {
+        color: #444;
+        font-size: 10pt;
+        line-height: 1.4;
+        margin: 0.4rem 0 0 1.1rem;
+    }
+
+    .timeline-highlights li {
+        margin-bottom: 0.2rem;
+        break-inside: avoid;
+    }
+
+    .timeline-role + .timeline-role {
+        margin-top: 0.75rem;
+        padding-top: 0;
+        border-top: none;
     }
     
     .timeline-item:last-child {
@@ -842,14 +1110,14 @@ section {
     }
     
     .timeline-title {
-        font-size: 14pt;
+        font-size: 12.5pt;
         font-weight: bold;
         color: #000;
         margin: 0;
     }
-    
+
     .timeline-company {
-        font-size: 13pt;
+        font-size: 12pt;
         color: #333;
         font-weight: 600;
         margin: 0;
@@ -857,7 +1125,7 @@ section {
     
     .timeline-date {
         color: #666;
-        font-size: 11pt;
+        font-size: 10pt;
         background: none;
         padding: 0;
         border-radius: 0;
@@ -867,11 +1135,37 @@ section {
     
     .timeline-description {
         color: #444;
-        font-size: 11pt;
+        font-size: 10pt;
         line-height: 1.4;
-        margin-top: 0.5rem;
+        margin-top: 0.4rem;
     }
     
+    /* Work Section */
+    .work-grid {
+        display: block;
+        max-width: none;
+    }
+
+    .work-card {
+        padding: 0 0 0.5rem;
+        border: none;
+    }
+
+    .work-kind {
+        display: none;
+    }
+
+    .work-title {
+        font-size: 12pt;
+        color: #000;
+        margin: 0;
+    }
+
+    .work-note {
+        color: #444;
+        font-size: 10pt;
+    }
+
     /* Skills Section */
     .skills-grid {
         display: block;
@@ -967,221 +1261,3 @@ section {
         page-break-before: avoid;
     }
 }
-
-/* PDF-specific styles (for html2pdf.js) */
-.pdf-version {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 14px;
-    line-height: 1.4;
-    color: #000000;
-    background: #ffffff;
-}
-
-.pdf-version .main {
-    padding: 20px;
-}
-
-.pdf-version .container {
-    max-width: none;
-    padding: 0;
-}
-
-.pdf-version .hero {
-    padding: 0 0 20px 0;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #000000;
-}
-
-.pdf-version .hero-content {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-}
-
-.pdf-version .hero-text {
-    flex: 1;
-}
-
-.pdf-version .hero-title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #000000;
-    margin: 0 0 8px 0;
-}
-
-.pdf-version .hero-subtitle {
-    font-size: 18px;
-    font-weight: 600;
-    color: #000000;
-    margin: 0 0 12px 0;
-}
-
-.pdf-version .hero-description {
-    font-size: 14px;
-    color: #000000;
-    line-height: 1.5;
-    margin: 0;
-}
-
-.pdf-version .miro-highlight {
-    background: none;
-    padding: 0;
-    color: #000000;
-    font-weight: 600;
-}
-
-.pdf-version .hero-image {
-    display: block;
-}
-
-.pdf-version .profile-image {
-    width: 100px;
-    height: 100px;
-    border: 2px solid #000000;
-    border-radius: 50%;
-}
-
-.pdf-version .section-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: #000000;
-    margin: 0 0 15px 0;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #000000;
-}
-
-.pdf-version .section-title::after {
-    display: none;
-}
-
-.pdf-version section {
-    margin-bottom: 25px;
-    page-break-inside: avoid;
-}
-
-.pdf-version .contact-info {
-    background: none;
-    border: none;
-    padding: 0;
-    box-shadow: none;
-}
-
-.pdf-version .contact-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: #000000;
-}
-
-.pdf-version .contact-label {
-    font-weight: 600;
-    color: #000000;
-    margin-right: 10px;
-    min-width: 80px;
-}
-
-.pdf-version .contact-value {
-    color: #000000;
-}
-
-.pdf-version .timeline {
-    margin: 0;
-    max-width: none;
-}
-
-.pdf-version .timeline::before {
-    display: none;
-}
-
-.pdf-version .timeline-item {
-    margin-bottom: 20px;
-    padding: 0;
-    page-break-inside: avoid;
-}
-
-.pdf-version .timeline-marker {
-    display: none;
-}
-
-.pdf-version .timeline-content {
-    background: none;
-    border: none;
-    padding: 0;
-    box-shadow: none;
-}
-
-.pdf-version .timeline-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 8px;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.pdf-version .timeline-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: #000000;
-    margin: 0;
-}
-
-.pdf-version .timeline-company {
-    font-size: 14px;
-    font-weight: 500;
-    color: #000000;
-    margin: 0;
-}
-
-.pdf-version .timeline-date {
-    font-size: 12px;
-    color: #000000;
-    background: none;
-    padding: 0;
-    margin-left: auto;
-}
-
-.pdf-version .timeline-description {
-    font-size: 13px;
-    color: #000000;
-    line-height: 1.4;
-    margin: 0;
-}
-
-.pdf-version .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin: 0;
-}
-
-.pdf-version .skill-category {
-    background: none;
-    border: none;
-    padding: 0;
-    box-shadow: none;
-    margin-bottom: 15px;
-}
-
-.pdf-version .skill-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: #000000;
-    margin: 0 0 8px 0;
-}
-
-.pdf-version .skill-list {
-    margin: 0;
-    padding: 0;
-}
-
-.pdf-version .skill-list li {
-    font-size: 12px;
-    color: #000000;
-    background: none;
-    border: none;
-    padding: 2px 0;
-    margin: 0 0 0 15px;
-    list-style: disc;
-} 

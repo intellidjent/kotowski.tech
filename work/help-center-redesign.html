@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redesigning the Miro Help Center — Ruslan Kotowski</title>
+    <meta name="description" content="How I rebuilt the Help Center&#x27;s Zendesk theme so readers find answers faster, in their own language, and can hand any article to an AI assistant.">
+    <meta name="author" content="Ruslan Kotowski">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Redesigning the Miro Help Center">
+    <meta property="og:description" content="How I rebuilt the Help Center&#x27;s Zendesk theme so readers find answers faster, in their own language, and can hand any article to an AI assistant.">
+    <meta property="og:url" content="https://kotowski.me/work/help-center-redesign.html">
+    <meta property="og:image" content="https://kotowski.me/img/social-preview.png">
+    <meta property="og:site_name" content="Ruslan Kotowski">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Canonical URL and the Markdown source -->
+    <link rel="canonical" href="https://kotowski.me/work/help-center-redesign.html">
+    <link rel="alternate" type="text/markdown" href="help-center-redesign.md">
+
+    <!-- Structured Data for AI/Search -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Redesigning the Miro Help Center",
+        "description": "How I rebuilt the Help Center's Zendesk theme so readers find answers faster, in their own language, and can hand any article to an AI assistant.",
+        "url": "https://kotowski.me/work/help-center-redesign.html",
+        "mainEntityOfPage": "https://kotowski.me/work/help-center-redesign.html",
+        "image": "https://kotowski.me/img/social-preview.png",
+        "datePublished": "2026-10-27",
+        "dateModified": "2026-10-27",
+        "author": {
+            "@type": "Person",
+            "@id": "https://kotowski.me/#person",
+            "name": "Ruslan Kotowski",
+            "url": "https://kotowski.me/"
+        }
+    }
+    </script>
+
+    <!-- Favicons -->
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon-180x180.png">
+    <meta name="theme-color" content="#6B46C1">
+
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Manrope:wght@600..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/modern-style.css">
+</head>
+<body>
+    <!-- Generated from work/help-center-redesign.md by build.py. Edit that file, not this one. -->
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="../#about" class="nav-link">About</a>
+                <a href="../#experience" class="nav-link">Experience</a>
+                <a href="../#work" class="nav-link">Work</a>
+                <a href="../#skills" class="nav-link">Skills</a>
+                <a href="../#contact" class="nav-link">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main" id="main">
+        <article class="case-study">
+            <div class="container">
+                <p class="case-study-back"><a href="../#work" class="link">← All work</a></p>
+                <header class="case-study-header">
+                    <h1 class="case-study-title">Redesigning the Miro Help Center</h1>
+                    <p class="case-study-meta">Redesign lead · Miro · July – October 2026<br>Published <time datetime="2026-10-27">27 October 2026</time></p>
+                    <p class="case-study-summary">How I rebuilt the Help Center&#x27;s Zendesk theme so readers find answers faster, in their own language, and can hand any article to an AI assistant.</p>
+                </header>
+                <div class="case-study-body">
+<p>In October 2026 the Miro Help Center switched to a new theme. The same 1,000 articles stayed at the same URLs, but readers got a new way to find and read them. I led the redesign and built the theme: 27 versions between July and October, each previewed on a sandbox before it went near production.</p>
+<p>This is the second half of a bigger change. The <a href="help-center-docs-as-code.html">first half</a> moved the content itself into Git.</p>
+<h2>At a glance</h2>
+<ul>
+<li><strong>Scope:</strong> 11 of the theme's 22 Zendesk templates rebuilt, plus its CSS and JavaScript.</li>
+<li><strong>Languages:</strong> English and seven translations. Every new piece of interface text can be translated.</li>
+<li><strong>Shipped:</strong> version 2.0.27 replaced 1.4.17 on help.miro.com in October 2026.</li>
+<li><strong>Nothing dropped:</strong> every redirect, support-widget rule and tracking hook from the old theme carried over.</li>
+</ul>
+<h2>What wasn't working</h2>
+<ul>
+<li><strong>Getting around.</strong> There was no top-level navigation. The sidebar listed only the current section, with a "See more" link, so moving to another area of the product meant going back to the home page.</li>
+<li><strong>Search took over every page.</strong> A large search box sat above every article, pushing the content down, and it moved to a different place on category pages.</li>
+<li><strong>One look, hard-coded.</strong> The stylesheet had a single CSS variable. Colours were written out by hand across 6,500 lines, so there was no practical way to offer dark mode.</li>
+<li><strong>Mixed languages.</strong> About 35 pieces of interface text were hard-coded in English, plus the messages in the JavaScript. Readers of a translated page still saw English labels.</li>
+<li><strong>Feedback went nowhere.</strong> Answers to "Was this helpful?" had been silently lost since 2022, and comments containing <code>&amp;</code>, <code>#</code> or <code>+</code> were cut off.</li>
+</ul>
+<figure>
+<a href="../img/work/hc-redesign/old-home.webp"><img src="../img/work/hc-redesign/old-home.webp" alt="The old Help Center home page: a dark photo of a person at a computer behind a large search box, then three illustrated topic tiles. No navigation in the header." width="1600" height="984" loading="lazy"></a>
+<figcaption>Before: a photo hero and no way to reach a category except through the tiles.</figcaption>
+</figure>
+
+<figure>
+<a href="../img/work/hc-redesign/new-home.webp"><img src="../img/work/hc-redesign/new-home.webp" alt="The new Help Center home page: every category in a navigation bar under the header, a dark-mode toggle, and a search box on a dotted canvas with collaborator cursors, then topic icons." width="1600" height="985" loading="lazy"></a>
+<figcaption>After: every category one click away from any page, and a home page that looks like Miro.</figcaption>
+</figure>
+
+<h2>What changed for readers</h2>
+<h3>Finding the right article</h3>
+<p>Every page now has the full list of categories across the top. The sidebar shows the whole category as a tree that readers can expand and collapse, with the current article highlighted and its group already open. Breadcrumbs show the full path, starting from a home icon. The "On this page" list stays in view and highlights the heading you're reading, and every heading has its own link, so support agents can send a customer to the exact step.</p>
+<figure>
+<a href="../img/work/hc-redesign/old-article.webp"><img src="../img/work/hc-redesign/old-article.webp" alt="An article in the old theme: a large search box above the title, a list of the section's articles on the left with a See more link, and an On this page list on the right." width="1600" height="990" loading="lazy"></a>
+<figcaption>Before: the search box sits above every article, and the sidebar shows one section.</figcaption>
+</figure>
+
+<figure>
+<a href="../img/work/hc-redesign/new-article.webp"><img src="../img/work/hc-redesign/new-article.webp" alt="The same article in the new theme: category navigation and a compact search with a ⌘K hint in the header, the whole category as a tree on the left with Cards highlighted, a breadcrumb with a home icon, a 6 min read label, a Copy page button, and an On this page list with the current heading highlighted." width="1600" height="987" loading="lazy"></a>
+<figcaption>After: the article starts at the top, with navigation, reading time and a Copy page menu around it.</figcaption>
+</figure>
+
+<h3>Searching from anywhere</h3>
+<p>Search moved into a compact box in the header. It opens a full-screen search with ⌘K or Ctrl+K from any page. An empty search shows your recent searches, the first result is selected so Enter opens it, and each result shows which section it comes from.</p>
+<h3>Reading comfortably</h3>
+<ul>
+<li><strong>Dark mode.</strong> One toggle in the header. The choice is applied before the page draws, so there's no white flash.</li>
+<li><strong>Reading time.</strong> Each article shows an estimate. For Japanese and Chinese it counts characters instead of words.</li>
+<li><strong>Wide tables</strong> scroll sideways instead of squeezing their columns.</li>
+<li><strong>Accessibility.</strong> Visible focus styles, far more labelled controls (ARIA attributes went from 45 to 175), and no animation for readers who've turned motion off.</li>
+</ul>
+<h3>How do you hand a help article to an AI assistant?</h3>
+<p>Many readers now paste help articles into ChatGPT or Claude. Every article has a <strong>Copy page</strong> button that copies it as clean Markdown. Its menu also opens the article in ChatGPT, Claude or Gemini with a ready-made prompt. Zendesk can't serve Markdown itself, so the theme converts the page in the browser. For agents that read the whole Help Center, the <a href="help-center-docs-as-code.html">docs-as-code pipeline</a> publishes <code>llms.txt</code> and Markdown bundles.</p>
+<h3>Product announcements</h3>
+<p>The release-notes category already had filters by product area, status and phase. The redesign translated their labels, added page numbers and gave the status badges colours that work in dark mode.</p>
+<figure>
+<a href="../img/work/hc-redesign/new-announcements.webp"><img src="../img/work/hc-redesign/new-announcements.webp" alt="The Product Announcements page in the new theme, with filters for product area, release status and release phase." width="1600" height="511" loading="lazy"></a>
+<figcaption>Release notes with filters, now translated.</figcaption>
+</figure>
+
+<h2>In every language</h2>
+<p>The theme added 82 new translation keys, agreed with the localization team so they fit the team's existing workflow. Messages written by the JavaScript go through a small helper that reads the translated text from the page and fills in values like counts. If a translation doesn't exist yet, the reader sees English rather than a blank. A handful of labels are still English only, and they're on the list for the next release.</p>
+<h2>How do you ship a theme redesign without breaking a live site?</h2>
+<ul>
+<li><strong>Sandbox first.</strong> Every change went to a sandbox Help Center first. The production build is made from the sandbox one and differs only in its name and a few IDs, so what I previewed is what shipped.</li>
+<li><strong>One version per change.</strong> Each new behaviour got its own version number, so the previous build was always a clean rollback.</li>
+<li><strong>Merge the live site in.</strong> The redesign started from an older copy of the live theme. Before production, I merged in everything the live theme had gained since, including redirects, support-widget rules, chat and table styles.</li>
+<li><strong>Design tokens.</strong> The stylesheet went from 1 CSS variable to 90. Colours are defined once, and dark mode swaps the set.</li>
+<li><strong>Navigation that respects permissions.</strong> The menus are built from the Help Center's API and cached for each audience and language separately, so a reader never sees an article that's meant for someone else.</li>
+<li><strong>Feedback restored.</strong> "Was this helpful?" answers reach the team again, with the full comment.</li>
+</ul>
+<h2>Trade-offs and what's next</h2>
+<ul>
+<li><strong>It's heavier.</strong> The CSS went from 127 KB to 247 KB and the JavaScript from 21 KB to 82 KB. The navigation is built in the browser, so it needs JavaScript, and a reader's first visit fetches the article list in several requests before the cache takes over.</li>
+<li><strong>The CSS grew in layers.</strong> Later rounds of changes were added as overrides on top of earlier ones. Folding them into the tokens is the next clean-up.</li>
+<li><strong>Accessibility isn't finished.</strong> The search overlay needs proper dialog behaviour and focus handling, the "Was this helpful?" answers should be real buttons, and dark mode should follow the reader's system setting.</li>
+<li><strong>Copy page has limits.</strong> The Markdown conversion flattens tables and nested lists.</li>
+</ul>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">Built from <a href="https://github.com/intellidjent/kotowski.tech/blob/master/cv.yml">one YAML file</a> with Python and GitHub Actions · Also as <a href="../cv.md">Markdown</a> and <a href="../llms.txt">llms.txt</a> · Updated October 2026</p>
+        </div>
+    </footer>
+</body>
+</html>

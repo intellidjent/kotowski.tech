@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving a 1,000-article Help Center to docs-as-code — Ruslan Kotowski</title>
+    <meta name="description" content="How I moved Miro&#x27;s Help Center out of Zendesk&#x27;s editor and into Git, and switched publishing over without readers noticing.">
+    <meta name="author" content="Ruslan Kotowski">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Moving a 1,000-article Help Center to docs-as-code">
+    <meta property="og:description" content="How I moved Miro&#x27;s Help Center out of Zendesk&#x27;s editor and into Git, and switched publishing over without readers noticing.">
+    <meta property="og:url" content="https://kotowski.me/work/help-center-docs-as-code.html">
+    <meta property="og:image" content="https://kotowski.me/img/social-preview.png">
+    <meta property="og:site_name" content="Ruslan Kotowski">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Canonical URL and the Markdown source -->
+    <link rel="canonical" href="https://kotowski.me/work/help-center-docs-as-code.html">
+    <link rel="alternate" type="text/markdown" href="help-center-docs-as-code.md">
+
+    <!-- Structured Data for AI/Search -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Moving a 1,000-article Help Center to docs-as-code",
+        "description": "How I moved Miro's Help Center out of Zendesk's editor and into Git, and switched publishing over without readers noticing.",
+        "url": "https://kotowski.me/work/help-center-docs-as-code.html",
+        "mainEntityOfPage": "https://kotowski.me/work/help-center-docs-as-code.html",
+        "image": "https://kotowski.me/img/social-preview.png",
+        "datePublished": "2026-10-27",
+        "dateModified": "2026-10-27",
+        "author": {
+            "@type": "Person",
+            "@id": "https://kotowski.me/#person",
+            "name": "Ruslan Kotowski",
+            "url": "https://kotowski.me/"
+        }
+    }
+    </script>
+
+    <!-- Favicons -->
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon-180x180.png">
+    <meta name="theme-color" content="#6B46C1">
+
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Manrope:wght@600..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/modern-style.css">
+</head>
+<body>
+    <!-- Generated from work/help-center-docs-as-code.md by build.py. Edit that file, not this one. -->
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="../#about" class="nav-link">About</a>
+                <a href="../#experience" class="nav-link">Experience</a>
+                <a href="../#work" class="nav-link">Work</a>
+                <a href="../#skills" class="nav-link">Skills</a>
+                <a href="../#contact" class="nav-link">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main" id="main">
+        <article class="case-study">
+            <div class="container">
+                <p class="case-study-back"><a href="../#work" class="link">← All work</a></p>
+                <header class="case-study-header">
+                    <h1 class="case-study-title">Moving a 1,000-article Help Center to docs-as-code</h1>
+                    <p class="case-study-meta">Project lead · Miro · November 2025 – present<br>Published <time datetime="2026-10-27">27 October 2026</time></p>
+                    <p class="case-study-summary">How I moved Miro&#x27;s Help Center out of Zendesk&#x27;s editor and into Git, and switched publishing over without readers noticing.</p>
+                </header>
+                <div class="case-study-body">
+<p>Miro's Help Center has nearly 1,000 English articles on Zendesk Guide, and the localization team translates them into seven more languages. Until September 2026, writers edited articles in Zendesk's web editor. Now they write Markdown in Git, every change goes through a pull request with automated checks, and a pipeline publishes to Zendesk. Readers saw no change: the site, the URLs and the translations stayed where they were.</p>
+<p>I proposed the project, led it, and built most of the tooling, largely with AI coding agents.</p>
+<h2>At a glance</h2>
+<ul>
+<li><strong>Scale:</strong> about 1,000 articles in 7 categories, including articles that only admins or specific customer groups can see.</li>
+<li><strong>People:</strong> a small writing team that was new to Git, and engineers who now open doc fixes themselves.</li>
+<li><strong>Stack:</strong> Markdown, Git, GitHub Actions, Python, Vale and the Zendesk Guide API.</li>
+<li><strong>Switch-over:</strong> September 2026, after months of publishing to a sandbox and a parity check against the live site.</li>
+</ul>
+<h2>Why move</h2>
+<p>The web editor had worked for years, but its limits grew as the product moved faster:</p>
+<ul>
+<li><strong>No review.</strong> A change went live when someone pressed Publish. There was no diff, and nobody else saw it first.</li>
+<li><strong>No useful history.</strong> Finding out who changed a sentence, and why, meant guessing.</li>
+<li><strong>No bulk changes.</strong> Renaming a feature across dozens of articles meant opening each one.</li>
+<li><strong>No structure for machines.</strong> AI assistants and search engines increasingly read the Help Center before people do, and they were reading rendered HTML.</li>
+</ul>
+<p>Docs-as-code fixes all four with tools engineers already trust. Git keeps the history, pull requests give review, CI runs the checks, and Markdown is plain text that both people and AI agents can read.</p>
+<h2>Constraints</h2>
+<ul>
+<li><strong>Zendesk stays the website.</strong> Readers, search rankings, URLs and the in-product help widget all depend on it. Git became the source, and Zendesk became the publishing target.</li>
+<li><strong>Translations belong to another team.</strong> The localization team owns seven languages directly in Zendesk, and their tooling reacts to our publishes. The pipeline only ever writes English.</li>
+<li><strong>Some articles are restricted.</strong> Admin-only and segment-only articles must never leak into public output, including the files written for AI agents.</li>
+<li><strong>Nobody should notice.</strong> No broken links, lost images or reordered sections on switch-over day.</li>
+<li><strong>Writers, not engineers.</strong> Everything had to work for writers who were new to Git.</li>
+</ul>
+<h2>What I built</h2>
+<p><img alt="Writers and engineers open a pull request. Checks run on every pull request. Merging to main publishes to a Zendesk sandbox and builds llms.txt and Markdown bundles. A manual or scheduled release publishes to Zendesk production." src="../img/work/docs-pipeline.svg" /></p>
+<h3>A Markdown format with a contract</h3>
+<p>Each article is one Markdown file. Its front matter carries everything Zendesk needs: the title, position, audience and a permanent identity key. That key, not Zendesk's article ID, links a file to its live page, so a new article can be reviewed and merged before Zendesk has ever seen it. Callouts, tabs and expandable sections use simple fenced blocks, and the authoring handbook documents each one.</p>
+<h3>How do you publish Markdown to Zendesk without losing anything?</h3>
+<p>The publisher turns Markdown into Zendesk's HTML and keeps the whole tree in step with Git: categories, sections, order, permissions and images. Deleting a file archives the article rather than destroying it, so it can be restored.</p>
+<p>Two checks keep the conversion honest:</p>
+<ul>
+<li><strong>Round trip.</strong> Every live article goes through the export converter and back through the publish converter. The check counts features on both ends, such as lists, callouts, accordions and images. A count that drops is content the switch would silently lose, and CI fails if losses grow.</li>
+<li><strong>Parity.</strong> A full publish runs against production through a client that records writes instead of sending them. Every request goes through one method that refuses anything but a read. The report lists every change a reader would see.</li>
+</ul>
+<h3>Checks on every pull request</h3>
+<p>CI checks front matter, links, Vale style rules, spelling, article order and audience gating on every pull request, so reviewers can spend their time on the content. That's more than 20 workflows and 100+ test files. Every third-party Action is pinned to a commit SHA: a docs pipeline that publishes to production deserves the same supply-chain care as product code.</p>
+<h3>How do you keep restricted articles out of llms.txt?</h3>
+<p>The same source produces <code>llms.txt</code> and per-area Markdown bundles, so AI assistants can read the Help Center as clean text instead of scraping pages. The bundles contain public articles only. The obvious shortcut, reusing the list of audiences the site publishes to, would have put a couple of hundred admin-only articles into a public file. So the filter is stricter than that, and a separate CI check re-reads the built files to confirm it.</p>
+<h3>AI tooling for the writing team</h3>
+<p>I wrote eight agent skills for the fiddly parts of the job: scaffolding an article or section, moving or retiring one without breaking links, reordering a section, and checking formatting before a pull request. A shared <code>AGENTS.md</code> gives Claude Code, Cursor and Codex the same rules, whichever tool a writer prefers. The authoring handbook and a Git guide for writers cover everything the skills don't.</p>
+<h3>Ownership</h3>
+<p>Each article is linked to the engineering team that owns its feature in Miro's service catalog. When a feature changes, there's a named team to ask, and outdated docs have an owner.</p>
+<h2>How do you switch publishing without readers noticing?</h2>
+<p>I treated the switch like a production release:</p>
+<ul>
+<li><strong>Rehearse on a sandbox.</strong> Every merge published to a Zendesk sandbox for months before production.</li>
+<li><strong>Measure, don't estimate.</strong> The parity report gated the switch. At one point we predicted a fix would cut the visible differences from 260 to about 160. The re-run showed 260 again, because the estimate had counted at the wrong end. From then on, only measured numbers counted.</li>
+<li><strong>Keep a parachute.</strong> The old sync stayed intact as the rollback. The first production runs only updated articles and never deleted any, so a rollback would never have to undo anything.</li>
+<li><strong>Release on a schedule.</strong> A writer can comment <code>/publish on 2026-09-30 09:00 UTC</code> on a pull request. At that time it merges and publishes.</li>
+</ul>
+<p>The first production publish ran on 8 September 2026. Since then the pipeline has published to production 95 times, about a dozen times a week, with one failed run.</p>
+<h2>Results</h2>
+<ul>
+<li>Git is the only place English articles are written. Every change has an author, a reviewer and a diff.</li>
+<li>Writers have merged more than 260 pull requests, and engineers have started opening doc fixes themselves.</li>
+<li>Restricted articles can't reach public output: the check runs on every pull request.</li>
+<li>AI assistants get clean, public-only Markdown from the same source as the site.</li>
+<li>The content no longer depends on Zendesk. If the Help Center moves to another platform, the articles move as they are.</li>
+</ul>
+<h2>What I'd do differently</h2>
+<ul>
+<li><strong>Change the source before the platform.</strong> We first built a Docusaurus site from the Markdown. It was a useful preview, but moving the source of truth didn't need a new site, and keeping a second build in step cost time until we retired it.</li>
+<li><strong>Settle identity first.</strong> Matching files to pages by Zendesk article ID broke for new articles, which have no ID until they're published. A permanent key in each file fixed it, but changing identity halfway through is expensive.</li>
+<li><strong>Retire the old path sooner.</strong> For a while, two pipelines published the same content in different ways, and people and agents both mixed them up.</li>
+<li><strong>Measure from day one.</strong> The parity report came late. If it had existed from the start, every conversion fix would have had a number attached.</li>
+</ul>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">Built from <a href="https://github.com/intellidjent/kotowski.tech/blob/master/cv.yml">one YAML file</a> with Python and GitHub Actions · Also as <a href="../cv.md">Markdown</a> and <a href="../llms.txt">llms.txt</a> · Updated October 2026</p>
+        </div>
+    </footer>
+</body>
+</html>
